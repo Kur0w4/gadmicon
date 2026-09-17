@@ -1,0 +1,6 @@
+{
+  "name": "Gadmicon - Plataforma de Gestión Inmobiliaria",
+  "description": "Sitio web corporativo e institucional de Gadmicon: Administración profesional de condominios, plazas comerciales y residencias con Alero Real Estate en República Dominicana.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
