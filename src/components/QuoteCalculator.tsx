@@ -4,19 +4,15 @@ import {
   Home, 
   Sparkles, 
   TrendingUp, 
-  DollarSign, 
   Check, 
   ArrowRight, 
   ArrowLeft, 
   Send, 
-  ShieldCheck, 
-  AlertCircle,
   FileSpreadsheet,
   CheckCircle2,
   Mail,
   User,
-  Phone,
-  Layers
+  Phone
 } from 'lucide-react';
 import { Currency, LeadQuote, PropertyType } from '../types';
 import { Translations } from '../i18n/translations';

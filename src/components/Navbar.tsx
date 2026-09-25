@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, Globe, Database, DollarSign, ChevronRight, Layers, Menu, X } from 'lucide-react';
+import { Building2, Globe, ChevronRight, Menu, X } from 'lucide-react';
 import { Currency, Language } from '../types';
 import { Translations } from '../i18n/translations';
 

@@ -9,8 +9,7 @@ import {
   CheckCircle, 
   ArrowRight,
   Shield,
-  Clock,
-  ExternalLink
+  Clock
 } from 'lucide-react';
 import { Translations } from '../i18n/translations';
 

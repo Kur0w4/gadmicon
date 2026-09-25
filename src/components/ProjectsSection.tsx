@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Building, 
   MapPin, 
   Images, 
   ChevronRight, 
-  ExternalLink,
-  Layers,
   Sparkles
 } from 'lucide-react';
 import { PortfolioProject, Language } from '../types';

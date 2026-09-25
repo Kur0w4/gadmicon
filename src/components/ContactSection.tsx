@@ -7,9 +7,7 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  MessageSquare, 
-  FileText,
-  AlertCircle
+  MessageSquare
 } from 'lucide-react';
 import { Translations } from '../i18n/translations';
 

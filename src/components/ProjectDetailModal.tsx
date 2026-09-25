@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ChevronLeft, ChevronRight, MapPin, Building, Calendar, Check, ExternalLink } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, MapPin, Check } from 'lucide-react';
 import { PortfolioProject, Language } from '../types';
 import { Translations } from '../i18n/translations';
 

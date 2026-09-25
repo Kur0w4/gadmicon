@@ -3,16 +3,12 @@ import {
   Building2, 
   ShieldCheck, 
   Users, 
-  Clock, 
-  Award, 
   CheckCircle2, 
   FileText, 
   PhoneCall, 
-  Layers, 
   TrendingUp, 
   MapPin, 
   Phone, 
-  Mail, 
   HeartHandshake
 } from 'lucide-react';
 import { Translations } from '../i18n/translations';
