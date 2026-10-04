@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-              Navegación
+              {t.footer.navTitle}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
                   onClick={() => onNavigate('nosotros')} 
                   className="text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
                 >
-                  Sobre Gadmicon
+                  {t.footer.aboutLink}
                 </button>
               </li>
               <li>
@@ -89,7 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
                   onClick={() => onNavigate('contacto')} 
                   className="text-blue-600 hover:text-blue-700 font-medium transition-colors cursor-pointer"
                 >
-                  Contacto & Asesoría
+                  {t.footer.contactLink}
                 </button>
               </li>
             </ul>
@@ -98,7 +98,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
           {/* Contact & Legal */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-              Atención al Cliente
+              {t.footer.customerService}
             </h4>
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
@@ -127,7 +127,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 transition-colors cursor-pointer text-xs shadow-2xs"
               >
                 <ArrowUp className="w-3.5 h-3.5 text-blue-600" />
-                <span>Volver al inicio</span>
+                <span>{t.footer.backToTop}</span>
               </button>
             </div>
           </div>
@@ -139,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
             © {new Date().getFullYear()} GADMICON. {t.footer.rights}
           </div>
           <div className="flex items-center gap-4 text-slate-500">
-            <span>Administración de Condominios • Plazas • Apartamentos</span>
+            <span>{t.footer.footerTaglineBottom}</span>
           </div>
         </div>
       </div>

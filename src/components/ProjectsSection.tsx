@@ -26,11 +26,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   const [activeModalProject, setActiveModalProject] = useState<PortfolioProject | null>(null);
 
   const categories = [
-    { id: 'all', label: t.projects.all },
-    { id: 'torre', label: 'Torres Residenciales' },
-    { id: 'villa', label: 'Villas de Lujo' },
-    { id: 'penthouse', label: 'Penthouses Colección' },
-    { id: 'residence', label: 'Residencias de Playa' },
+    { id: 'all', label: t.projects.categories.all },
+    { id: 'torre', label: t.projects.categories.torres },
+    { id: 'villa', label: t.projects.categories.villas },
+    { id: 'penthouse', label: t.projects.categories.penthouses },
+    { id: 'residence', label: t.projects.categories.playa },
   ];
 
   const filteredProjects = selectedCategory === 'all'
@@ -131,7 +131,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                       </h3>
                       {proj.units_count && (
                         <span className="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200 whitespace-nowrap">
-                          {proj.units_count} {proj.units_count === 1 ? 'Unidad' : 'Unidades'}
+                          {proj.units_count} {proj.units_count === 1 ? t.projects.unitSingular : t.projects.unitPlural}
                         </span>
                       )}
                     </div>

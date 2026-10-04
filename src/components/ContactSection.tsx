@@ -44,10 +44,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Conversemos sobre las necesidades de su condominio o propiedad
+            {t.contact.title}
           </h2>
           <p className="text-slate-600 text-sm sm:text-base mt-2">
-            Nuestro equipo de administradores está listo para atender a su junta de vecinos o presentar una propuesta personalizada.
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-900">GADMICON</h3>
-                  <p className="text-xs text-slate-500">Equipo de Administración • Alero Real Estate</p>
+                  <p className="text-xs text-slate-500">{t.contact.teamTitle}</p>
                 </div>
               </div>
 
@@ -71,12 +71,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
                   <div>
-                    <span className="font-semibold text-slate-900 block">Sede Operativa</span>
+                    <span className="font-semibold text-slate-900 block">{t.contact.officeTitle}</span>
                     <span className="text-slate-600 text-xs leading-relaxed block">
-                      Gral. Eusebio Manzueta F23, República Dominicana
-                    </span>
-                    <span className="text-slate-400 text-[11px] block mt-0.5">
-                      Oficina corporativa Alero Real Estate: Santiago & Santo Domingo
+                      {t.contact.officeAddress}
                     </span>
                   </div>
                 </div>
@@ -84,7 +81,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                 <div className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
                   <div>
-                    <span className="font-semibold text-slate-900 block">Teléfono / WhatsApp</span>
+                    <span className="font-semibold text-slate-900 block">{t.contact.phoneTitle}</span>
                     <a 
                       href="tel:+18494680001" 
                       className="text-blue-600 hover:text-blue-700 transition-colors font-medium text-xs block"
@@ -92,7 +89,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                       +1 (849) 468-0001
                     </a>
                     <span className="text-slate-400 text-[11px] block mt-0.5">
-                      Atención inmediata a juntas de vecinos y propietarios
+                      {t.contact.phoneDesc}
                     </span>
                   </div>
                 </div>
@@ -100,7 +97,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
                   <div>
-                    <span className="font-semibold text-slate-900 block">Correo Electrónico</span>
+                    <span className="font-semibold text-slate-900 block">{t.contact.emailTitle}</span>
                     <a 
                       href="mailto:contacto@gadmicon.com" 
                       className="text-slate-700 hover:text-blue-600 transition-colors text-xs block"
@@ -119,19 +116,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                 <div className="flex items-start gap-3">
                   <Clock className="w-4 h-4 text-blue-600 shrink-0 mt-1" />
                   <div>
-                    <span className="font-semibold text-slate-900 block">Horario de Oficina</span>
+                    <span className="font-semibold text-slate-900 block">{t.contact.hoursTitle}</span>
                     <span className="text-slate-600 text-xs block">
-                      Lunes a Viernes: 8:00 AM – 6:00 PM
+                      {t.contact.hoursText}
                     </span>
                     <span className="text-slate-400 text-[11px] block mt-0.5">
-                      Guardias de emergencia técnica 24/7 para condominios activos
+                      {t.contact.hoursEmergency}
                     </span>
                   </div>
                 </div>
               </div>
 
               <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 leading-relaxed shadow-2xs">
-                ¿Desea que visitemos su edificio o asamblea para un diagnóstico sin costo? Indíquenoslo en el formulario y coordinaremos con gusto.
+                {t.contact.visitQuestion}
               </div>
 
             </div>
@@ -146,9 +143,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                   <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">¡Mensaje Recibido!</h3>
+                  <h3 className="text-xl font-bold text-slate-900">{t.contact.successTitle}</h3>
                   <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                    Gracias por comunicarse con Gadmicon. Un administrador del equipo de Alero Real Estate se pondrá en contacto con usted a la brevedad.
+                    {t.contact.successMessage}
                   </p>
                   <button
                     type="button"
@@ -162,45 +159,45 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                     }}
                     className="mt-4 px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold cursor-pointer"
                   >
-                    Enviar otro mensaje
+                    {t.contact.sendAnother}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="border-b border-slate-100 pb-3 mb-4">
                     <h3 className="text-base font-bold text-slate-900">
-                      Envíenos una consulta
+                      {t.contact.formTitle}
                     </h3>
                     <p className="text-xs text-slate-500 mt-0.5">
-                      Respuesta garantizada en menos de 24 horas hábiles.
+                      {t.contact.formSubtitle}
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Nombre completo *
+                        {t.contact.fullNameLabel}
                       </label>
                       <input
                         type="text"
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Ej. Juan Pérez"
+                        placeholder={t.contact.fullNamePlaceholder}
                         className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Teléfono / WhatsApp *
+                        {t.contact.phoneLabel}
                       </label>
                       <input
                         type="tel"
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Ej. 809-555-0123"
+                        placeholder={t.contact.phonePlaceholder}
                         className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
@@ -209,27 +206,27 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Correo electrónico *
+                        {t.contact.emailLabel}
                       </label>
                       <input
                         type="email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="nombre@correo.com"
+                        placeholder={t.contact.emailPlaceholder}
                         className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Condominio, Plaza o Inmueble
+                        {t.contact.propertyLabel}
                       </label>
                       <input
                         type="text"
                         value={condoName}
                         onChange={(e) => setCondoName(e.target.value)}
-                        placeholder="Ej. Residencial Las Colinas"
+                        placeholder={t.contact.propertyPlaceholder}
                         className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
@@ -237,13 +234,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      ¿En qué podemos ayudarle? (Detalles o dudas)
+                      {t.contact.messageLabel}
                     </label>
                     <textarea
                       rows={4}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Indíquenos número aproximado de unidades, situación actual de la administración o requerimiento específico..."
+                      placeholder={t.contact.messagePlaceholder}
                       className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none"
                     />
                   </div>
@@ -254,17 +251,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                     className="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-xs flex items-center justify-center gap-2 mt-2 cursor-pointer disabled:opacity-50"
                   >
                     {loading ? (
-                      <span>Enviando consulta...</span>
+                      <span>{t.contact.submitting}</span>
                     ) : (
                       <>
-                        <span>Enviar Mensaje</span>
+                        <span>{t.contact.submit}</span>
                         <Send className="w-4 h-4 text-white" />
                       </>
                     )}
                   </button>
 
                   <p className="text-[11px] text-slate-500 text-center pt-1">
-                    Sus datos son tratados con confidencialidad profesional de acuerdo con la legislación vigente.
+                    {t.contact.privacyNote}
                   </p>
                 </form>
               )}

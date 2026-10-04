@@ -1,16 +1,4 @@
-import React, { useState } from 'react';
-import { 
-  Building2, 
-  Wrench, 
-  Sparkles, 
-  Key, 
-  FileCheck2, 
-  Cpu, 
-  CheckCircle, 
-  ArrowRight,
-  Shield,
-  Clock
-} from 'lucide-react';
+import React from 'react';
 import { Translations } from '../i18n/translations';
 
 interface ServicesSectionProps {
@@ -18,134 +6,74 @@ interface ServicesSectionProps {
   onSelectServiceForQuote?: (serviceId: string) => void;
 }
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({
-  t,
-  onSelectServiceForQuote,
-}) => {
-  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
+// Map service IDs to local images and fallback Unsplash URLs
+const SERVICE_IMAGES: Record<string, string> = {
+  'gestion-integral':
+    '/images/services/service_gestion_integral_1791104752657.png',
+  'mantenimiento-tecnico':
+    '/images/services/service_mantenimiento_1791104773304.png',
+  'housekeeping-5star':
+    '/images/services/service_housekeeping_1791104802539.png',
+  'renta-vacacional':
+    '/images/services/service_renta_vacacional_1791104832844.png',
+  'auditoria-dgii':
+    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
+  'tecnologia-supabase':
+    'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80',
+};
 
-  // Map icons to the 6 services
-  const getServiceIcon = (id: string) => {
-    switch (id) {
-      case 'gestion-integral':
-        return <Building2 className="w-6 h-6 text-blue-600" />;
-      case 'mantenimiento-tecnico':
-        return <Wrench className="w-6 h-6 text-sky-500" />;
-      case 'housekeeping-5star':
-        return <Sparkles className="w-6 h-6 text-amber-500" />;
-      case 'renta-vacacional':
-        return <Key className="w-6 h-6 text-emerald-600" />;
-      case 'auditoria-dgii':
-        return <FileCheck2 className="w-6 h-6 text-indigo-600" />;
-      case 'tecnologia-supabase':
-      default:
-        return <Cpu className="w-6 h-6 text-blue-600" />;
-    }
-  };
-
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ t }) => {
   return (
     <section id="servicios" className="py-16 sm:py-24 bg-white border-t border-slate-200 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+      {/* Subtle ambient blob */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/40 blur-[140px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        <div className="mb-12">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-600 border border-blue-100 mb-4">
+            {t.services.badge}
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             {t.services.title}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+          <p className="text-slate-500 text-base sm:text-lg mt-3 max-w-2xl leading-relaxed">
             {t.services.subtitle}
           </p>
         </div>
 
-        {/* CSS Grid of Minimalist Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.services.items.map((item) => {
-            const isSelected = selectedServiceId === item.id;
-            return (
-              <div
-                key={item.id}
-                id={`service-card-${item.id}`}
-                onClick={() => setSelectedServiceId(isSelected ? null : item.id)}
-                className={`group relative rounded-2xl p-6 sm:p-7 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
-                  isSelected
-                    ? 'bg-white border-blue-400 shadow-md ring-1 ring-blue-400/30'
-                    : 'bg-white border-slate-200 hover:border-blue-200 hover:shadow-md'
-                }`}
-              >
-                <div>
-                  {/* Icon Header */}
-                  <div className="w-12 h-12 rounded-xl bg-blue-50/80 border border-blue-100 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform shadow-xs">
-                    {getServiceIcon(item.id)}
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-blue-700 mb-2.5 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div>
-                  {/* Pills / Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[11px] font-medium px-2.5 py-0.5 rounded-md bg-white text-slate-700 border border-slate-200 shadow-2xs whitespace-nowrap"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action Link */}
-                  {onSelectServiceForQuote && (
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectServiceForQuote(item.title);
-                      }}
-                      className="mt-4 w-full py-2 px-3 rounded-lg bg-white hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 text-xs font-semibold text-slate-700 flex items-center justify-center gap-1.5 transition-all border border-slate-200 shadow-2xs cursor-pointer"
-                    >
-                      <span>Incluir en Cotización</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                </div>
+        {/* Service Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {t.services.items.map((item) => (
+            <div
+              key={item.id}
+              id={`service-card-${item.id}`}
+              className="group relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col"
+            >
+              {/* Image */}
+              <div className="relative h-52 sm:h-60 overflow-hidden bg-slate-100 shrink-0">
+                <img
+                  src={SERVICE_IMAGES[item.id]}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                {/* Subtle dark gradient overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
               </div>
-            );
-          })}
-        </div>
 
-        {/* Operational SLA Trust Banner */}
-        <div className="mt-12 rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0">
-              <Clock className="w-6 h-6 text-blue-600" />
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className="text-sm sm:text-base font-bold text-slate-900">
-                Respaldo y Presencia Operativa Garantizada
-              </h4>
-              <p className="text-xs text-slate-500 mt-0.5">
-                Supervisión presencial en edificios y atención técnica de emergencia en el Gran Santo Domingo, Santiago y Este.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-6 text-xs text-slate-600 font-medium">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-emerald-600" />
-              <span>Personal Asegurado & Depurado</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-emerald-600" />
-              <span>Contabilidad con Comprobantes Fiscales</span>
-            </div>
-          </div>
+          ))}
         </div>
 
       </div>

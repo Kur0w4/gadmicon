@@ -632,20 +632,20 @@ export const QuoteCalculator: React.FC<QuoteCalculatorProps> = ({
                         {preferredCurrency === 'USD' ? '$' : 'RD$'}{calculation.monthlyFee.toLocaleString()}
                       </span>
                       <span className="text-xs text-slate-500">
-                        / mes ({preferredCurrency})
+                        {t.quote.perMonth} ({preferredCurrency})
                       </span>
                     </div>
 
                     {calculation.discountPct > 0 && (
                       <p className="text-[11px] text-emerald-600 font-medium mt-1">
-                        Descuento institucional por volumen aplicado: -{calculation.discountPct}%
+                        {t.quote.volumeDiscount}: -{calculation.discountPct}%
                       </p>
                     )}
                   </div>
 
                   <div className="text-right sm:text-right text-xs text-slate-500 space-y-1">
-                    <div>{unitsCount} {unitsCount === 1 ? 'unidad' : 'unidades'} • {propertyType}</div>
-                    <div className="text-[11px] text-slate-400">{selectedServices.length} servicios incluidos</div>
+                    <div>{unitsCount} {unitsCount === 1 ? t.quote.unitSingular : t.quote.unitPlural} • {propertyType}</div>
+                    <div className="text-[11px] text-slate-400">{selectedServices.length} {t.quote.servicesIncludedCount}</div>
                   </div>
                 </div>
 

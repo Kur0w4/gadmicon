@@ -18,7 +18,7 @@ import { AboutSection } from './components/AboutSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { QuoteCalculator } from './components/QuoteCalculator';
-import { FaqSection } from './components/FaqSection';
+
 import { ContactSection } from './components/ContactSection';
 import { DatabaseAndWebhookConsole } from './components/DatabaseAndWebhookConsole';
 import { Footer } from './components/Footer';
@@ -177,8 +177,6 @@ export default function App() {
           onGoToConsole={() => setShowConsoleModal(true)}
         />
 
-        {/* Preguntas Frecuentes */}
-        <FaqSection t={t} />
 
         {/* Contacto Directo */}
         <ContactSection t={t} />
