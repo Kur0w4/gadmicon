@@ -6,8 +6,8 @@ export interface Translations {
     services: string;
     projects: string;
     quote: string;
+    contact: string;
     console: string;
-    partner: string;
     ctaQuote: string;
   };
   hero: {
@@ -17,6 +17,8 @@ export interface Translations {
     subheadline: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    contactQuestion: string;
+    contactAction: string;
     metric1Val: string;
     metric1Label: string;
     metric2Val: string;
@@ -98,7 +100,6 @@ export interface Translations {
     tagline: string;
     rights: string;
     location: string;
-    partnerDesc: string;
   };
 }
 
@@ -107,10 +108,10 @@ export const translations: Record<Language, Translations> = {
     nav: {
       home: 'Inicio',
       services: 'Servicios',
-      projects: 'Condominios & Torres',
-      quote: 'Cotizar Administración',
+      projects: 'Condominios',
+      quote: 'Cotizar',
+      contact: 'Contacto',
       console: 'Portal Clientes',
-      partner: 'Equipo Especializado de Alero Real Estate',
       ctaQuote: 'Solicitar Propuesta',
     },
     hero: {
@@ -118,8 +119,10 @@ export const translations: Record<Language, Translations> = {
       headline: 'Tranquilidad, orden y valor para su comunidad condominal',
       headlineHighlight: 'con Gadmicon',
       subheadline: 'Administramos su condominio o torre residencial con total transparencia contable, mantenimiento técnico continuo y atención cercana para juntas de vecinos y propietarios en República Dominicana.',
-      ctaPrimary: 'Cotizar Administración',
-      ctaSecondary: 'Conocer Proyectos',
+      ctaPrimary: 'Solicitar Propuesta de Administración',
+      ctaSecondary: 'Ver Condominios',
+      contactQuestion: '¿Prefieres hablar directamente con nosotros?',
+      contactAction: 'Contactar aquí',
       metric1Val: '+45',
       metric1Label: 'Comunidades y Torres Administradas',
       metric2Val: '99.2%',
@@ -175,7 +178,7 @@ export const translations: Record<Language, Translations> = {
     projects: {
       badge: 'Portafolio Administrado',
       title: 'Condominios y Residenciales en Nuestra Gestión',
-      subtitle: 'Ejemplos de torres y comunidades gestionadas con los altos estándares de Gadmicon y Alero Real Estate.',
+      subtitle: 'Ejemplos de torres y comunidades gestionadas con los altos estándares de Gadmicon.',
       all: 'Todos los Inmuebles',
       viewGallery: 'Ver Detalles del Inmueble',
       photosCount: 'fotografías del condominio',
@@ -210,7 +213,7 @@ export const translations: Record<Language, Translations> = {
       submit: 'Solicitar Propuesta para mi Condominio',
       submitting: 'Enviando solicitud...',
       successTitle: '¡Propuesta Solicitada Exitosamente!',
-      successMessage: 'Hemos recibido la información de su condominio. Un administrador del equipo de Gadmicon / Alero Real Estate le contactará para presentarle la propuesta formal.',
+      successMessage: 'Hemos recibido la información de su condominio. Un administrador del equipo de Gadmicon le contactará para presentarle la propuesta formal.',
       instantCalculation: 'Estimado Referencial de Administración',
       estimatedMonthly: 'Cuota Mensual Estimada',
       disclaimer: '*Tarifa referencial sujeta a evaluación presencial de las maquinarias, áreas sociales y necesidades específicas del condominio.',
@@ -230,10 +233,9 @@ export const translations: Record<Language, Translations> = {
       refreshData: 'Actualizar',
     },
     footer: {
-      tagline: 'Administración profesional de condominios, residenciales y plazas comerciales con Alero Real Estate en República Dominicana.',
+      tagline: 'Administración profesional de condominios, residenciales y plazas comerciales en República Dominicana.',
       rights: 'Todos los derechos reservados.',
       location: 'Gral. Eusebio Manzueta F23 • Santiago & Santo Domingo, República Dominicana',
-      partnerDesc: 'Equipo de administración patrimonial de Alero Real Estate, SRL.',
     },
   },
   en: {
@@ -242,8 +244,8 @@ export const translations: Record<Language, Translations> = {
       services: 'Services',
       projects: 'Managed Properties',
       quote: 'Management Quote',
+      contact: 'Contact',
       console: 'Client Portal',
-      partner: 'Official Property Management Arm of Alero Real Estate',
       ctaQuote: 'Request Proposal',
     },
     hero: {
@@ -251,8 +253,10 @@ export const translations: Record<Language, Translations> = {
       headline: 'Peace of mind, transparency, and value for your residential community',
       headlineHighlight: 'with Gadmicon',
       subheadline: 'We manage your condominium, tower, or commercial plaza with full financial accountability, preventive technical upkeep, and dedicated care for homeowner boards and owners across the Dominican Republic.',
-      ctaPrimary: 'Request Management Quote',
-      ctaSecondary: 'Explore Properties',
+      ctaPrimary: 'Request Management Proposal',
+      ctaSecondary: 'View Condominiums',
+      contactQuestion: 'Prefer to speak with us directly?',
+      contactAction: 'Contact us here',
       metric1Val: '+45',
       metric1Label: 'Communities & Towers Managed',
       metric2Val: '99.2%',
@@ -364,9 +368,8 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline: 'Setting the Caribbean benchmark for luxury real estate asset administration and equity enhancement.',
-      rights: 'All rights reserved. Phase 1.',
+      rights: 'All rights reserved.',
       location: 'Winston Churchill Ave #1099, Piantini, Santo Domingo, Dominican Republic',
-      partnerDesc: 'Strategic operating partner for the Alero Real Estate portfolio.',
     },
   },
   fr: {
@@ -375,8 +378,8 @@ export const translations: Record<Language, Translations> = {
       services: 'Services',
       projects: 'Portefeuille',
       quote: 'Devis',
+      contact: 'Contact',
       console: 'Console Supabase & n8n',
-      partner: 'Partenaire Officiel Alero Real Estate',
       ctaQuote: 'Demander un Devis',
     },
     hero: {
@@ -384,8 +387,10 @@ export const translations: Record<Language, Translations> = {
       headline: 'Gestion d’Actifs Intelligente pour l’Immobilier de Prestige',
       headlineHighlight: 'Gadmicon',
       subheadline: 'Nous maximisons le rendement patrimonial et la valeur des résidences, tours et villas en République Dominicaine grâce à une gestion intégrale et un service hôtelier cinq étoiles.',
-      ctaPrimary: 'Estimer la Gestion',
-      ctaSecondary: 'Explorer les Projets Alero',
+      ctaPrimary: 'Demander une Proposition de Gestion',
+      ctaSecondary: 'Voir les Copropriétés',
+      contactQuestion: 'Vous préférez échanger directement avec nous ?',
+      contactAction: 'Contactez-nous ici',
       metric1Val: '+$180M',
       metric1Label: 'USD d’Actifs sous Gestion',
       metric2Val: '99.4%',
@@ -497,9 +502,8 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline: 'La référence caribéenne en matière d’administration et de valorisation du patrimoine immobilier de prestige.',
-      rights: 'Tous droits réservés. Phase 1.',
-      location: 'Avenue Winston Churchill #1099, Piantini, Saint-Domingue, République Dominicaine',
-      partnerDesc: 'Partenaire opérationnel exclusif pour les développements Alero Real Estate.',
+      rights: 'Tous droits réservés.',
+      location: 'Avenue Winston Churchill #1099, Saint-Domingue, République Dominicaine',
     },
   },
 };

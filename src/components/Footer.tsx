@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, MapPin, Mail, Phone, Shield, ArrowUp } from 'lucide-react';
+import { Building2, MapPin, Mail, Phone, ArrowUp } from 'lucide-react';
 import { Translations } from '../i18n/translations';
 
 interface FooterProps {
@@ -26,19 +26,11 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
               <span className="text-lg font-bold text-slate-900 tracking-wider">
                 GADMICON
               </span>
-              <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">
-                Alero Real Estate
-              </span>
             </div>
             
             <p className="text-slate-600 max-w-md leading-relaxed text-sm">
               {t.footer.tagline}
             </p>
-
-            <div className="flex items-center gap-2 text-slate-700 pt-1 text-xs">
-              <Shield className="w-4 h-4 text-blue-600 shrink-0" />
-              <span className="font-semibold text-slate-900">{t.footer.partnerDesc}</span>
-            </div>
 
             <div className="flex items-start gap-2 text-slate-500 pt-1 text-xs">
               <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
@@ -123,8 +115,8 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-slate-400" />
-                <a href="mailto:operaciones@alerorealestate.com" className="text-slate-600 hover:text-blue-600">
-                  operaciones@alerorealestate.com
+                <a href="mailto:operaciones@gadmicon.com" className="text-slate-600 hover:text-blue-600">
+                  operaciones@gadmicon.com
                 </a>
               </div>
             </div>
@@ -144,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
 
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
-            © {new Date().getFullYear()} GADMICON • Alero Real Estate, SRL. Todos los derechos reservados.
+            © {new Date().getFullYear()} GADMICON. {t.footer.rights}
           </div>
           <div className="flex items-center gap-4 text-slate-500">
             <span>Administración de Condominios • Plazas • Apartamentos</span>

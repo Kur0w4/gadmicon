@@ -1,13 +1,8 @@
-import React from 'react';
-import { 
-  Building2, 
-  ShieldCheck, 
-  ArrowRight, 
-  PhoneCall, 
-  ChevronRight, 
-  FileText, 
-  Wrench,
-  MapPin
+import React, { useState, useEffect } from 'react';
+import {
+  ArrowRight,
+  ChevronRight,
+  PhoneCall
 } from 'lucide-react';
 import { Currency, PropertyType } from '../types';
 import { Translations } from '../i18n/translations';
@@ -20,6 +15,40 @@ interface HeroSectionProps {
   onNavigateToContact: () => void;
 }
 
+const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+  useEffect(() => {
+    setDisplayedText('');
+    setIsTypingComplete(false);
+    let index = 0;
+
+    const timer = setInterval(() => {
+      if (index < text.length) {
+        setDisplayedText(text.slice(0, index + 1));
+        index++;
+      } else {
+        setIsTypingComplete(true);
+        clearInterval(timer);
+      }
+    }, 85);
+
+    return () => clearInterval(timer);
+  }, [text]);
+
+  return (
+    <span className="text-blue-600 font-extrabold inline-block">
+      {displayedText}
+      <span
+        className={`inline-block w-[3px] h-[0.8em] bg-blue-600 ml-1.5 align-middle transition-opacity ${
+          isTypingComplete ? 'animate-pulse' : 'opacity-100'
+        }`}
+      />
+    </span>
+  );
+};
+
 export const HeroSection: React.FC<HeroSectionProps> = ({
   t,
   onNavigateToQuote,
@@ -27,155 +56,83 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onNavigateToContact,
 }) => {
   return (
-    <section className="relative bg-white pt-10 pb-16 lg:pt-14 lg:pb-20 border-b border-slate-100">
+    <section className="relative bg-gradient-to-b from-slate-50/60 via-white to-white pt-8 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-slate-100">
+
+      {/* Background Decorative Accents */}
+      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-blue-50/40 to-transparent pointer-events-none" />
+      <div className="absolute top-10 left-10 -z-10 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Main Header Container - Centered, spacious & easy to read */}
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          
-          {/* Institution Trust Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold text-blue-800 shadow-2xs">
-            <Building2 className="w-4 h-4 text-blue-600" />
-            <span>{t.hero.badge}</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-600 font-medium">República Dominicana</span>
-          </div>
 
-          {/* Main Headline - High readability for older clients */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-            {t.hero.headline.split('Gadmicon')[0]}
-            <span className="text-blue-600 font-extrabold">
-              {t.hero.headlineHighlight}
-            </span>
-          </h1>
+        {/* Main Grid Container: 2-column layout (Text left, Decorative image right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
-          {/* Clear Subheadline */}
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto">
-            {t.hero.subheadline}
-          </p>
+          {/* Left Column: Text Content & Actions */}
+          <div className="lg:col-span-6 space-y-6 text-left">
 
-          {/* 3 Clear Informative Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left pt-2">
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
-                <FileText className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-slate-900">Transparencia Financiera</h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Estados de cuenta mensuales claros, facturas con NCF y conciliación bancaria.
-                </p>
-              </div>
-            </div>
+            {/* Main Headline with Typewriter Effect & Proper Spacing */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.18]">
+              <span>{t.hero.headline}</span>{' '}
+              <TypewriterText text={t.hero.headlineHighlight} />
+            </h1>
 
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
-                <Wrench className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-slate-900">Mantenimiento Preventivo</h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Supervisión constante de generadores, bombas, ascensores y áreas comunes.
-                </p>
-              </div>
-            </div>
+            {/* Short & Simple Subheadline */}
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl">
+              {t.hero.subheadline}
+            </p>
 
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-slate-900">Ley 5038 & Asambleas</h3>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Convocatorias formales, actas notariales y respaldo legal para la junta.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Action CTAs - Big, comfortable touch buttons for older users */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button
-              id="hero-primary-cta"
-              onClick={() => onNavigateToQuote()}
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-sm hover:shadow flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>Solicitar Propuesta de Administración</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              id="hero-secondary-cta"
-              onClick={onNavigateToProjects}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>Ver Condominios Administrados</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
-          </div>
-
-        </div>
-
-        {/* Informative Image Banner & Metrics Section */}
-        <div className="mt-12 max-w-5xl mx-auto space-y-6">
-          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-            <img
-              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85"
-              alt="Gestión Profesional de Condominios y Torres Residenciales Gadmicon"
-              className="w-full h-64 sm:h-80 lg:h-96 object-cover"
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-transparent" />
-
-            <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-              <div className="text-white space-y-1">
-                <div className="flex items-center gap-2 text-xs text-sky-300 font-bold">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>Santo Domingo • Santiago • Samaná • Este</span>
-                </div>
-                <h3 className="text-base sm:text-xl font-bold">
-                  Cuentas claras, mantenimiento al día y tranquilidad para su propiedad
-                </h3>
-              </div>
+            {/* Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+              <button
+                id="hero-primary-cta"
+                onClick={() => onNavigateToQuote()}
+                className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-blue-500/15 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>{t.hero.ctaPrimary}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
               <button
-                id="hero-direct-call-btn"
-                onClick={onNavigateToContact}
-                className="px-4 py-2.5 rounded-xl bg-white text-slate-900 hover:bg-blue-50 font-bold text-xs shadow-md transition-colors flex items-center gap-2 shrink-0 cursor-pointer"
+                id="hero-secondary-cta"
+                onClick={onNavigateToProjects}
+                className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
-                <PhoneCall className="w-4 h-4 text-blue-600" />
-                <span>Contactar Administrador</span>
+                <span>{t.hero.ctaSecondary}</span>
+                <ChevronRight className="w-4 h-4 text-slate-500" />
               </button>
             </div>
+
+            {/* Direct Contact Text Link below buttons */}
+            <div className="pt-1">
+              <button
+                onClick={onNavigateToContact}
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors cursor-pointer group"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-blue-600 group-hover:scale-110 transition-transform" />
+                <span>{t.hero.contactQuestion} <strong className="underline underline-offset-4 decoration-blue-300 group-hover:decoration-blue-600">{t.hero.contactAction}</strong></span>
+              </button>
+            </div>
+
           </div>
 
-          {/* Clean Metric Indicators */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-white border border-slate-200 rounded-xl p-4 text-center shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                {t.hero.metric1Val}
-              </div>
-              <div className="text-xs text-slate-600 font-medium mt-1">
-                {t.hero.metric1Label}
-              </div>
-            </div>
+          {/* Right Column: Purely Decorative Clean Image */}
+          <div className="lg:col-span-6">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
 
-            <div className="bg-white border border-blue-200 rounded-xl p-4 text-center shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-blue-600">
-                {t.hero.metric2Val}
+              {/* Image Frame - Sleek, clean and decorative without clutter */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80">
+                <img
+                  src="/images/gadmicon_hero_building.png"
+                  alt="Gestión Profesional de Condominios y Torres Residenciales Gadmicon"
+                  className="w-full h-[380px] sm:h-[460px] lg:h-[500px] object-cover object-center"
+                  loading="eager"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85';
+                  }}
+                />
               </div>
-              <div className="text-xs text-slate-600 font-medium mt-1">
-                {t.hero.metric2Label}
-              </div>
-            </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-4 text-center shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                {t.hero.metric3Val}
-              </div>
-              <div className="text-xs text-slate-600 font-medium mt-1">
-                {t.hero.metric3Label}
-              </div>
             </div>
           </div>
 
@@ -185,4 +142,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     </section>
   );
 };
+
+
 

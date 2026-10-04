@@ -12,7 +12,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ t }) => {
   const faqs = [
     {
       q: '¿Qué tipo de inmuebles administra Gadmicon en República Dominicana?',
-      a: 'Administramos condominios residenciales de apartamentos, torres multifamiliares, residenciales cerrados de villas y plazas comerciales. Operamos en coordinación estrecha con la empresa matriz Alero Real Estate en Santiago, Santo Domingo y las principales zonas turísticas y urbanas.',
+      a: 'Administramos condominios residenciales de apartamentos, torres multifamiliares, residenciales cerrados de villas y plazas comerciales. Operamos en Santiago, Santo Domingo y las principales zonas turísticas y urbanas de República Dominicana.',
     },
     {
       q: '¿Cómo se maneja la recaudación de cuotas de mantenimiento y la contabilidad?',
@@ -41,10 +41,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ t }) => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Preguntas Frecuentes</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Claridad y respuestas para propietarios y juntas
           </h2>

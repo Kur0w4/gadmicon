@@ -53,11 +53,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ t, onContactClick })
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700">
-              <Building2 className="w-3.5 h-3.5" />
-              <span>Sobre Gadmicon</span>
-            </div>
-
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Gestión profesional con visión humana, orden y tranquilidad para su comunidad.
             </h2>
@@ -82,7 +77,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ t, onContactClick })
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Respaldo Alero Real Estate</span>
+                <span>Gestión Integral Certificada</span>
               </div>
             </div>
 
@@ -105,10 +100,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ t, onContactClick })
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
                   <div className="text-xs uppercase tracking-wider text-slate-500 font-bold">
-                    División Especializada
+                    Empresa Especializada
                   </div>
                   <div className="text-lg font-bold text-slate-900 mt-0.5">
-                    Alero Real Estate, SRL
+                    Gadmicon Condominios
                   </div>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shadow-xs">
@@ -117,7 +112,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ t, onContactClick })
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Gadmicon nace como el brazo operativo de administración patrimonial de Alero Real Estate, asegurando que cada desarrollo inmobiliario y comunidad entregada mantenga el más alto estándar de servicio continuo, plusvalía y armonía entre vecinos.
+                Gadmicon nace para brindar una administración patrimonial profesional y transparente, asegurando que cada residencial, torre y plaza comercial mantenga el más alto estándar de servicio continuo, plusvalía y armonía entre propietarios.
               </p>
 
               <div className="space-y-3 pt-2">

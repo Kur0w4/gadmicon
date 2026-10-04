@@ -43,10 +43,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
         
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3">
-            <MessageSquare className="w-3.5 h-3.5" />
-            <span>Contacto Directo</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             Conversemos sobre las necesidades de su condominio o propiedad
           </h2>
@@ -112,10 +108,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ t, onSuccess }) 
                       contacto@gadmicon.com
                     </a>
                     <a 
-                      href="mailto:operaciones@alerorealestate.com" 
+                      href="mailto:operaciones@gadmicon.com" 
                       className="text-slate-500 hover:text-blue-600 text-xs block"
                     >
-                      operaciones@alerorealestate.com
+                      operaciones@gadmicon.com
                     </a>
                   </div>
                 </div>

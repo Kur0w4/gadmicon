@@ -31,13 +31,14 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'servicios', label: t.nav.services },
     { id: 'proyectos', label: t.nav.projects },
     { id: 'cotizar', label: t.nav.quote },
+    { id: 'contacto', label: t.nav.contact },
   ];
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Logo Brand */}
           <button
             id="brand-logo-btn"
@@ -57,13 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="text-xl font-bold tracking-wider text-slate-900 font-sans">
                   GADMICON
                 </span>
-                <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                  Rep. Dominicana
-                </span>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium tracking-tight">
-                {t.nav.partner}
-              </p>
             </div>
           </button>
 
@@ -76,55 +71,41 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.id}
                   id={`nav-link-${item.id}`}
                   onClick={() => onNavigate(item.id)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                    isActive
-                      ? 'text-blue-700 bg-blue-50/80 shadow-xs border border-blue-200/80 font-semibold'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${isActive
+                    ? 'text-blue-700 bg-blue-50/80 shadow-xs border border-blue-200/80 font-semibold'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
                 >
                   {item.label}
                 </button>
               );
             })}
-
-            {/* Direct Contact Nav link */}
-            <button
-              id="nav-link-contacto"
-              onClick={() => onNavigate('contacto')}
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                activeSection === 'contacto'
-                  ? 'text-blue-700 bg-blue-50/80 shadow-xs border border-blue-200/80 font-semibold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-              }`}
-            >
-              Contacto
-            </button>
           </nav>
 
           {/* Controls: Currency + Language + CTA */}
+
+          {/* Controls: Currency + Language + CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            
+
             {/* Currency Selector */}
             <div className="flex items-center bg-white border border-slate-200 rounded-lg p-0.5 text-xs font-semibold shadow-2xs">
               <button
                 id="curr-usd-btn"
                 onClick={() => onCurrencyChange('USD')}
-                className={`px-2.5 py-1 rounded transition-colors ${
-                  currency === 'USD'
-                    ? 'bg-blue-50 text-blue-700 shadow-xs border border-blue-200'
-                    : 'text-slate-500 hover:text-slate-900'
-                }`}
+                className={`px-2.5 py-1 rounded transition-colors ${currency === 'USD'
+                  ? 'bg-blue-50 text-blue-700 shadow-xs border border-blue-200'
+                  : 'text-slate-500 hover:text-slate-900'
+                  }`}
               >
                 USD $
               </button>
               <button
                 id="curr-dop-btn"
                 onClick={() => onCurrencyChange('DOP')}
-                className={`px-2.5 py-1 rounded transition-colors ${
-                  currency === 'DOP'
-                    ? 'bg-blue-50 text-blue-700 shadow-xs border border-blue-200'
-                    : 'text-slate-500 hover:text-slate-900'
-                }`}
+                className={`px-2.5 py-1 rounded transition-colors ${currency === 'DOP'
+                  ? 'bg-blue-50 text-blue-700 shadow-xs border border-blue-200'
+                  : 'text-slate-500 hover:text-slate-900'
+                  }`}
               >
                 DOP RD$
               </button>
@@ -138,11 +119,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={lang}
                   id={`lang-${lang}-btn`}
                   onClick={() => onLanguageChange(lang)}
-                  className={`px-2 py-1 uppercase rounded text-xs transition-colors ${
-                    currentLang === lang
-                      ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs border border-blue-200'
-                      : 'text-slate-500 hover:text-slate-900'
-                  }`}
+                  className={`px-2 py-1 uppercase rounded text-xs transition-colors ${currentLang === lang
+                    ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs border border-blue-200'
+                    : 'text-slate-500 hover:text-slate-900'
+                    }`}
                 >
                   {lang}
                 </button>
@@ -184,24 +164,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onNavigate(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`text-left px-3 py-2 rounded-md text-sm font-medium ${
-                  activeSection === item.id ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
-                }`}
+                className={`text-left px-3 py-2 rounded-md text-sm font-medium ${activeSection === item.id ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+                  }`}
               >
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => {
-                onNavigate('contacto');
-                setMobileMenuOpen(false);
-              }}
-              className={`text-left px-3 py-2 rounded-md text-sm font-medium ${
-                activeSection === 'contacto' ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
-              }`}
-            >
-              Contacto
-            </button>
           </div>
 
           {/* Mobile Controls */}
@@ -211,9 +179,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={lang}
                   onClick={() => onLanguageChange(lang)}
-                  className={`px-2.5 py-1 text-xs uppercase rounded ${
-                    currentLang === lang ? 'bg-blue-50 text-blue-700 font-bold shadow-xs border border-blue-200' : 'text-slate-500'
-                  }`}
+                  className={`px-2.5 py-1 text-xs uppercase rounded ${currentLang === lang ? 'bg-blue-50 text-blue-700 font-bold shadow-xs border border-blue-200' : 'text-slate-500'
+                    }`}
                 >
                   {lang}
                 </button>

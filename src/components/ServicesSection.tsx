@@ -49,10 +49,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3">
-            <Shield className="w-3.5 h-3.5 text-blue-600" />
-            <span>{t.services.badge}</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             {t.services.title}
           </h2>
