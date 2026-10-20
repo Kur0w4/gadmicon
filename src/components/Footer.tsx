@@ -1,13 +1,15 @@
 import React from 'react';
-import { Building2, MapPin, Mail, Phone, ArrowUp } from 'lucide-react';
+import { Building2, MapPin, Mail, Phone, ArrowUp, ShieldCheck, Lock, FileText, Scale, Cookie } from 'lucide-react';
 import { Translations } from '../i18n/translations';
+import { LegalModalType } from './LegalModal';
 
 interface FooterProps {
   t: Translations;
   onNavigate: (section: string) => void;
+  onOpenLegal: (type: LegalModalType) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ t, onNavigate, onOpenLegal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -18,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           
           {/* Brand Col */}
-          <div className="md:col-span-2 space-y-4">
+          <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-xs">
                 <Building2 className="w-4 h-4 text-white" />
@@ -76,14 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
                   {t.nav.projects}
                 </button>
               </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('cotizar')} 
-                  className="text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
-                >
-                  {t.nav.quote}
-                </button>
-              </li>
+
               <li>
                 <button 
                   onClick={() => onNavigate('contacto')} 
@@ -95,7 +90,53 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
             </ul>
           </div>
 
-          {/* Contact & Legal */}
+          {/* Legal & Compliance column */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-blue-600" />
+              <span>Legal y Cumplimiento</span>
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <button 
+                  onClick={() => onOpenLegal('privacy')} 
+                  className="text-slate-600 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                >
+                  <Lock className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Política de Privacidad</span>
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onOpenLegal('terms')} 
+                  className="text-slate-600 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                >
+                  <FileText className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Términos y Condiciones</span>
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onOpenLegal('cookies')} 
+                  className="text-slate-600 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                >
+                  <Cookie className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Política de Cookies</span>
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onOpenLegal('legal')} 
+                  className="text-slate-600 hover:text-blue-600 transition-colors cursor-pointer flex items-center gap-1.5"
+                >
+                  <Scale className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Aviso Legal y Ley 5038</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900">
               {t.footer.customerService}
@@ -136,13 +177,18 @@ export const Footer: React.FC<FooterProps> = ({ t, onNavigate }) => {
 
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
-            © {new Date().getFullYear()} GADMICON. {t.footer.rights}
+            © {new Date().getFullYear()} GADMICON S.R.L. Todos los derechos reservados. Registrado bajo la Ley No. 5038 de Condominios & Ley 172-13 de Protección de Datos.
           </div>
           <div className="flex items-center gap-4 text-slate-500">
-            <span>{t.footer.footerTaglineBottom}</span>
+            <button onClick={() => onOpenLegal('privacy')} className="hover:underline cursor-pointer">Privacidad</button>
+            <span>•</span>
+            <button onClick={() => onOpenLegal('terms')} className="hover:underline cursor-pointer">Términos</button>
+            <span>•</span>
+            <button onClick={() => onOpenLegal('cookies')} className="hover:underline cursor-pointer">Cookies</button>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+

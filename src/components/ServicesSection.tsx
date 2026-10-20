@@ -3,7 +3,6 @@ import { Translations } from '../i18n/translations';
 
 interface ServicesSectionProps {
   t: Translations;
-  onSelectServiceForQuote?: (serviceId: string) => void;
 }
 
 // Map service IDs to local images and fallback Unsplash URLs

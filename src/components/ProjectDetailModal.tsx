@@ -9,7 +9,7 @@ interface ProjectDetailModalProps {
   onClose: () => void;
   currentLang: Language;
   t: Translations;
-  onQuoteThisProject?: (project: PortfolioProject) => void;
+
 }
 
 export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
@@ -17,7 +17,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   onClose,
   currentLang,
   t,
-  onQuoteThisProject,
 }) => {
   const [activePhotoIdx, setActivePhotoIdx] = useState<number>(0);
 
@@ -192,18 +191,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 Portafolio Oficial Alero Real Estate
               </span>
 
-              {onQuoteThisProject && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    onQuoteThisProject(project);
-                  }}
-                  className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-xs cursor-pointer"
-                >
-                  Cotizar Modelo Similar
-                </button>
-              )}
             </div>
 
           </div>

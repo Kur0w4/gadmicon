@@ -11,7 +11,6 @@ interface NavbarProps {
   activeSection: string;
   onNavigate: (section: string) => void;
   t: Translations;
-  pendingLeadsCount: number;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -22,7 +21,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   activeSection,
   onNavigate,
   t,
-  pendingLeadsCount,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
@@ -30,7 +28,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'home', label: t.nav.home },
     { id: 'servicios', label: t.nav.services },
     { id: 'proyectos', label: t.nav.projects },
-    { id: 'cotizar', label: t.nav.quote },
     { id: 'contacto', label: t.nav.contact },
   ];
 
@@ -131,11 +128,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Direct CTA */}
             <button
-              id="navbar-cta-quote-btn"
-              onClick={() => onNavigate('cotizar')}
+              id="navbar-cta-contact-btn"
+              onClick={() => onNavigate('contacto')}
               className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow flex items-center gap-1.5 cursor-pointer"
             >
-              <span>{t.nav.ctaQuote}</span>
+              <span>{t.nav.ctaContact}</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>

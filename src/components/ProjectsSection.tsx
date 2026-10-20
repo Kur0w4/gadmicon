@@ -13,14 +13,12 @@ interface ProjectsSectionProps {
   projects: PortfolioProject[];
   currentLang: Language;
   t: Translations;
-  onSelectProjectForQuote?: (project: PortfolioProject) => void;
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   projects,
   currentLang,
   t,
-  onSelectProjectForQuote,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [activeModalProject, setActiveModalProject] = useState<PortfolioProject | null>(null);
@@ -153,15 +151,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
 
-                    {onSelectProjectForQuote && (
-                      <button
-                        type="button"
-                        onClick={() => onSelectProjectForQuote(proj)}
-                        className="px-3 py-1 rounded-lg bg-white hover:bg-blue-50 text-slate-700 hover:text-blue-700 text-xs font-semibold transition-colors border border-slate-200 hover:border-blue-200 shadow-xs cursor-pointer"
-                      >
-                        Cotizar
-                      </button>
-                    )}
                   </div>
                 </div>
               </div>
@@ -178,7 +167,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           onClose={() => setActiveModalProject(null)}
           currentLang={currentLang}
           t={t}
-          onQuoteThisProject={onSelectProjectForQuote}
         />
       )}
     </section>

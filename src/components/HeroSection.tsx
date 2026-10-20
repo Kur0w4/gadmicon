@@ -4,13 +4,10 @@ import {
   ChevronRight,
   PhoneCall
 } from 'lucide-react';
-import { Currency, PropertyType } from '../types';
 import { Translations } from '../i18n/translations';
 
 interface HeroSectionProps {
   t: Translations;
-  currency: Currency;
-  onNavigateToQuote: (prefill?: { propertyType: PropertyType; units: number }) => void;
   onNavigateToProjects: () => void;
   onNavigateToContact: () => void;
 }
@@ -51,7 +48,6 @@ const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   t,
-  onNavigateToQuote,
   onNavigateToProjects,
   onNavigateToContact,
 }) => {
@@ -85,7 +81,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <button
                 id="hero-primary-cta"
-                onClick={() => onNavigateToQuote()}
+                onClick={onNavigateToContact}
                 className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-blue-500/15 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>{t.hero.ctaPrimary}</span>

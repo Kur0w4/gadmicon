@@ -5,13 +5,11 @@ export interface Translations {
     home: string;
     services: string;
     projects: string;
-    quote: string;
     contact: string;
     console: string;
-    ctaQuote: string;
+    ctaContact: string;
   };
   hero: {
-    badge: string;
     headline: string;
     headlineHighlight: string;
     subheadline: string;
@@ -19,14 +17,6 @@ export interface Translations {
     ctaSecondary: string;
     contactQuestion: string;
     contactAction: string;
-    metric1Val: string;
-    metric1Label: string;
-    metric2Val: string;
-    metric2Label: string;
-    metric3Val: string;
-    metric3Label: string;
-    quickCalcTitle: string;
-    quickCalcDesc: string;
   };
   services: {
     title: string;
@@ -62,7 +52,6 @@ export interface Translations {
     };
   };
   about: {
-    badge: string;
     heading: string;
     paragraph1: string;
     paragraph2: string;
@@ -105,46 +94,7 @@ export interface Translations {
     submit: string;
     privacyNote: string;
   };
-  quote: {
-    title: string;
-    subtitle: string;
-    badge: string;
-    step1Title: string;
-    step2Title: string;
-    step3Title: string;
-    step4Title: string;
-    step1Desc: string;
-    step2Desc: string;
-    step3Desc: string;
-    step4Desc: string;
-    propertyType: string;
-    unitsCount: string;
-    currency: string;
-    servicesIncluded: string;
-    fullName: string;
-    emailAddress: string;
-    phoneNumber: string;
-    additionalNotes: string;
-    next: string;
-    prev: string;
-    submit: string;
-    submitting: string;
-    successTitle: string;
-    successMessage: string;
-    instantCalculation: string;
-    estimatedMonthly: string;
-    disclaimer: string;
-    requiredField: string;
-    perMonth: string;
-    volumeDiscount: string;
-    unitSingular: string;
-    unitPlural: string;
-    servicesIncludedCount: string;
-    options: {
-      properties: { id: string; label: string; desc: string }[];
-      services: { id: string; label: string; desc: string }[];
-    };
-  };
+
   console: {
     title: string;
     subtitle: string;
@@ -177,13 +127,11 @@ export const translations: Record<Language, Translations> = {
       home: 'Inicio',
       services: 'Servicios',
       projects: 'Condominios',
-      quote: 'Cotizar',
       contact: 'Contacto',
       console: 'Portal Clientes',
-      ctaQuote: 'Solicitar Propuesta',
+      ctaContact: 'Solicitar Propuesta',
     },
     hero: {
-      badge: 'Administración de Condominios, Plazas y Residencias',
       headline: 'Tranquilidad, orden y valor para su comunidad condominal',
       headlineHighlight: 'con Gadmicon',
       subheadline: 'Administramos su condominio o torre residencial con total transparencia contable, mantenimiento técnico continuo y atención cercana para juntas de vecinos y propietarios en República Dominicana.',
@@ -191,14 +139,6 @@ export const translations: Record<Language, Translations> = {
       ctaSecondary: 'Ver Condominios',
       contactQuestion: '¿Prefieres hablar directamente con nosotros?',
       contactAction: 'Contactar aquí',
-      metric1Val: '+45',
-      metric1Label: 'Comunidades y Torres Administradas',
-      metric2Val: '99.2%',
-      metric2Label: 'Cobranza y Cumplimiento Mensual',
-      metric3Val: '24/7',
-      metric3Label: 'Atención a Emergencias Técnicas',
-      quickCalcTitle: 'Estimador Rápido de Cuota de Gestión',
-      quickCalcDesc: 'Conozca un valor referencial para la administración integral de su condominio o torre.',
     },
     services: {
       badge: 'Nuestros Servicios',
@@ -266,8 +206,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     about: {
-      badge: 'Sobre nosotros',
-      heading: 'Gestión profesional con visión humana, orden y tranquilidad para su comunidad.',
+      heading: 'Sobre Nosotros.',
       paragraph1: 'En Gadmicon nos dedicamos a la administración profesional, mantenimiento preventivo y dirección operativa de condominios residenciales, torres de apartamentos y plazas comerciales.',
       paragraph2: 'Trabajamos de la mano con las juntas de vecinos y propietarios para transformar la convivencia y asegurar que el patrimonio común funcione a la perfección: desde la cobranza puntual del mantenimiento hasta el funcionamiento impecable de ascensores, plantas eléctricas, seguridad y áreas sociales.',
       paragraph3: 'Gadmicon nace para brindar una administración patrimonial profesional y transparente, asegurando que cada residencial, torre y plaza comercial mantenga el más alto estándar de servicio continuo, plusvalía y armonía entre propietarios.',
@@ -323,56 +262,7 @@ export const translations: Record<Language, Translations> = {
       submit: 'Enviar Mensaje',
       privacyNote: 'Sus datos son tratados con estricta confidencialidad profesional y no serán compartidos con terceros.',
     },
-    quote: {
-      badge: 'Cotizador para su Edificio',
-      title: 'Solicite una Propuesta de Administración',
-      subtitle: 'Complete los datos básicos de su condominio para estimar la inversión y coordinar una visita técnica de levantamiento sin costo.',
-      step1Title: 'Tipo de Inmueble',
-      step1Desc: 'Indique las características principales de la propiedad a administrar.',
-      step2Title: 'Unidades y Moneda',
-      step2Desc: 'Cantidad aproximada de apartamentos o locales en el condominio.',
-      step3Title: 'Alcance de Servicios',
-      step3Desc: 'Seleccione las áreas en las que su condominio requiere apoyo.',
-      step4Title: 'Datos de Contacto',
-      step4Desc: 'Información para enviarle la propuesta formal o coordinar asamblea.',
-      propertyType: 'Tipo de Propiedad',
-      unitsCount: 'Número de Unidades / Apartamentos',
-      currency: 'Moneda Preferida',
-      servicesIncluded: 'Servicios Requeridos',
-      fullName: 'Nombre del Solicitante o Miembro de Junta',
-      emailAddress: 'Correo Electrónico',
-      phoneNumber: 'Teléfono / WhatsApp de Contacto',
-      additionalNotes: 'Nombre del condominio, ubicación o comentarios',
-      next: 'Siguiente Paso',
-      prev: 'Atrás',
-      submit: 'Solicitar Propuesta para mi Condominio',
-      submitting: 'Enviando solicitud...',
-      successTitle: '¡Propuesta Solicitada Exitosamente!',
-      successMessage: 'Hemos recibido la información de su condominio. Un administrador del equipo de Gadmicon le contactará para presentarle la propuesta formal.',
-      instantCalculation: 'Estimado Referencial de Administración',
-      estimatedMonthly: 'Cuota Mensual Estimada',
-      disclaimer: '*Tarifa referencial sujeta a evaluación presencial de las maquinarias, áreas sociales y necesidades específicas del condominio.',
-      requiredField: 'Este campo es requerido.',
-      perMonth: '/ mes',
-      volumeDiscount: 'Descuento institucional por volumen aplicado',
-      unitSingular: 'unidad',
-      unitPlural: 'unidades',
-      servicesIncludedCount: 'servicios incluidos',
-      options: {
-        properties: [
-          { id: 'torre_residencial', label: 'Torre Residencial', desc: 'Edificios en altura con áreas comunes, ascensores y planta' },
-          { id: 'residencial_horizontal', label: 'Residencial Horizontal', desc: 'Conjuntos de apartamentos o casas cerradas' },
-          { id: 'plaza_comercial', label: 'Plaza Comercial / Mixta', desc: 'Locales comerciales, oficinas y parqueos comunes' },
-          { id: 'villa_lujo', label: 'Villas o Complejo Privado', desc: 'Propiedades exclusivas con jardines y piscinas' },
-        ],
-        services: [
-          { id: 'gestion_contable', label: 'Gestión Contable & Cobranzas', desc: 'Emisión de recibos, cobranza y reporte mensual' },
-          { id: 'mantenimiento_tecnico', label: 'Mantenimiento Técnico', desc: 'Supervisión de plantas, bombas y equipos' },
-          { id: 'limpieza_conserjeria', label: 'Limpieza & Conserjería', desc: 'Personal capacitado para aseo de áreas comunes' },
-          { id: 'asesoria_legal', label: 'Asesoría Legal Ley 5038', desc: 'Asambleas, actas y régimen de condominio' },
-        ],
-      },
-    },
+
     console: {
       title: 'Portal Informativo de Clientes',
       subtitle: 'Supervisión de solicitudes y registros del sistema.',
@@ -403,13 +293,11 @@ export const translations: Record<Language, Translations> = {
       home: 'Home',
       services: 'Services',
       projects: 'Managed Properties',
-      quote: 'Management Quote',
       contact: 'Contact',
       console: 'Client Portal',
-      ctaQuote: 'Request Proposal',
+      ctaContact: 'Request Proposal',
     },
     hero: {
-      badge: 'Professional Condominium, Plaza & Residence Management',
       headline: 'Peace of mind, transparency, and value for your residential community',
       headlineHighlight: 'with Gadmicon',
       subheadline: 'We manage your condominium, tower, or commercial plaza with full financial accountability, preventive technical upkeep, and dedicated care for homeowner boards and owners across the Dominican Republic.',
@@ -417,14 +305,6 @@ export const translations: Record<Language, Translations> = {
       ctaSecondary: 'View Condominiums',
       contactQuestion: 'Prefer to speak with us directly?',
       contactAction: 'Contact us here',
-      metric1Val: '+45',
-      metric1Label: 'Communities & Towers Managed',
-      metric2Val: '99.2%',
-      metric2Label: 'Monthly HOA Collection Rate',
-      metric3Val: '24/7',
-      metric3Label: 'Technical Emergency Support',
-      quickCalcTitle: 'Quick Management Fee Estimator',
-      quickCalcDesc: 'Get a benchmark estimate for the full professional management of your condominium or building.',
     },
     services: {
       badge: 'Our Services',
@@ -492,8 +372,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     about: {
-      badge: 'About Us',
-      heading: 'Professional management with a human vision, order, and peace of mind for your community.',
+      heading: 'About Us.',
       paragraph1: 'At Gadmicon, we specialize in the professional management, preventive upkeep, and operational direction of residential condominiums, apartment towers, and commercial plazas.',
       paragraph2: 'We work hand in hand with condo boards and property owners to foster harmony and ensure shared assets run perfectly: from timely fee collection to flawless operation of elevators, generators, security, and amenities.',
       paragraph3: 'Gadmicon was created to deliver transparent, professional asset administration, ensuring every residential tower and commercial complex maintains the highest standards of service, property value, and community harmony.',
@@ -549,56 +428,7 @@ export const translations: Record<Language, Translations> = {
       submit: 'Send Message',
       privacyNote: 'Your details are handled with strict professional confidentiality and will never be shared with third parties.',
     },
-    quote: {
-      badge: 'Building Quote Engine',
-      title: 'Request a Management Proposal',
-      subtitle: 'Fill out basic information about your property to estimate investment costs and schedule a free technical site visit.',
-      step1Title: 'Property Type',
-      step1Desc: 'Specify the main characteristics of the property.',
-      step2Title: 'Units & Currency',
-      step2Desc: 'Approximate number of apartments or commercial units.',
-      step3Title: 'Scope of Services',
-      step3Desc: 'Select the operational areas where your building needs support.',
-      step4Title: 'Contact Information',
-      step4Desc: 'Details to receive your formal proposal or schedule a board presentation.',
-      propertyType: 'Property Typology',
-      unitsCount: 'Number of Units / Apartments',
-      currency: 'Preferred Currency',
-      servicesIncluded: 'Services Required',
-      fullName: 'Full Name or Board Representative',
-      emailAddress: 'Email Address',
-      phoneNumber: 'Contact Phone / WhatsApp',
-      additionalNotes: 'Building name, location, or additional remarks',
-      next: 'Next Step',
-      prev: 'Back',
-      submit: 'Request Proposal for My Building',
-      submitting: 'Submitting request...',
-      successTitle: 'Proposal Request Submitted Successfully!',
-      successMessage: 'We have received your property information. A Gadmicon manager will get in touch to present a formal proposal.',
-      instantCalculation: 'Preliminary Management Estimate',
-      estimatedMonthly: 'Estimated Monthly Fee',
-      disclaimer: '*Estimated fee subject to on-site inspection of machinery, common areas, and specific building requirements.',
-      requiredField: 'This field is required.',
-      perMonth: '/ month',
-      volumeDiscount: 'Institutional volume discount applied',
-      unitSingular: 'unit',
-      unitPlural: 'units',
-      servicesIncludedCount: 'services included',
-      options: {
-        properties: [
-          { id: 'torre_residencial', label: 'Residential Tower', desc: 'High-rise buildings with common areas, elevators & power plant' },
-          { id: 'residencial_horizontal', label: 'Gated Residential Complex', desc: 'Groups of low-rise apartments or gated home communities' },
-          { id: 'plaza_comercial', label: 'Commercial / Mixed Plaza', desc: 'Retail stores, corporate offices & shared parking' },
-          { id: 'villa_lujo', label: 'Luxury Villas / Private Complex', desc: 'Exclusive properties with private gardens and pools' },
-        ],
-        services: [
-          { id: 'gestion_contable', label: 'Accounting & Collection', desc: 'Billing, collections & monthly financial statements' },
-          { id: 'mantenimiento_tecnico', label: 'Technical Maintenance', desc: 'Generator, pump & machinery supervision' },
-          { id: 'limpieza_conserjeria', label: 'Janitorial & Cleaning', desc: 'Trained staff for spotless common areas' },
-          { id: 'asesoria_legal', label: 'Law 5038 Legal Advisory', desc: 'Assembly meetings, minutes & condo regulations' },
-        ],
-      },
-    },
+
     console: {
       title: 'Client Information Portal',
       subtitle: 'System requests and database overview.',
@@ -629,13 +459,11 @@ export const translations: Record<Language, Translations> = {
       home: 'Accueil',
       services: 'Services',
       projects: 'Copropriétés',
-      quote: 'Devis',
       contact: 'Contact',
       console: 'Espace Client',
-      ctaQuote: 'Demander un Devis',
+      ctaContact: 'Demander un Devis',
     },
     hero: {
-      badge: 'Gestion Professionnelle de Copropriétés et Résidences',
       headline: 'Sérénité, ordre et valeur pour votre communauté',
       headlineHighlight: 'avec Gadmicon',
       subheadline: 'Nous administrons votre copropriété ou tour résidentielle avec une transparence comptable totale, une maintenance technique continue et une écoute attentive des syndics et propriétaires en République Dominicaine.',
@@ -643,14 +471,6 @@ export const translations: Record<Language, Translations> = {
       ctaSecondary: 'Voir les Copropriétés',
       contactQuestion: 'Vous préférez échanger directement avec nous ?',
       contactAction: 'Contactez-nous ici',
-      metric1Val: '+45',
-      metric1Label: 'Copropriétés & Tours Administrées',
-      metric2Val: '99.2%',
-      metric2Label: 'Taux de Recouvrement Mensuel',
-      metric3Val: '24/7',
-      metric3Label: 'Assistance Technique d’Urgence',
-      quickCalcTitle: 'Calculateur Rapide de Gestion',
-      quickCalcDesc: 'Obtenez une estimation de référence pour la gestion complète de votre immeuble.',
     },
     services: {
       badge: 'Nos Services',
@@ -718,8 +538,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     about: {
-      badge: 'À propos de nous',
-      heading: 'Une gestion professionnelle alliée à una vision humaine et sereine pour votre communauté.',
+      heading: 'À propos de nous.',
       paragraph1: 'Chez Gadmicon, nous sommes spécialisés dans l’administration professionnelle, la maintenance préventive et la direction opérationnelle de copropriétés résidentielles, tours d’habitation et centres commerciaux.',
       paragraph2: 'Nous travaillons main dans la main avec les syndics et copropriétaires pour maintenir un climat d’harmonie et garantir le fonctionnement optimal des équipements communs.',
       paragraph3: 'Gadmicon a été créée pour offrir une gestion transparente et rigoureuse, assurant la valorisation pérenne de chaque immeuble et la satisfaction des résidents.',
@@ -775,56 +594,7 @@ export const translations: Record<Language, Translations> = {
       submit: 'Envoyer le Message',
       privacyNote: 'Vos données sont traitées en toute confidentialité et ne seront pas transmises à des tiers.',
     },
-    quote: {
-      badge: 'Simulateur de Devis Immeuble',
-      title: 'Demandez una Proposition d’Administration',
-      subtitle: 'Renseignez les caractéristiques de votre immeuble pour obtenir una estimation et organiser une visite technique gratuite.',
-      step1Title: 'Type d’Immeuble',
-      step1Desc: 'Indiquez la typologie principale de la propriété.',
-      step2Title: 'Unités & Devise',
-      step2Desc: 'Nombre approximatif d’appartements ou locaux.',
-      step3Title: 'Étendue des Services',
-      step3Desc: 'Sélectionnez les domaines dans lesquels vous souhaitez notre intervention.',
-      step4Title: 'Coordonnées de Contact',
-      step4Desc: 'Informations pour l’envoi de votre proposition personnalisée.',
-      propertyType: 'Typologie du Bien',
-      unitsCount: 'Nombre d’Unités / Appartements',
-      currency: 'Devise Souhaitée',
-      servicesIncluded: 'Services Requis',
-      fullName: 'Nom du Demandeura ou Membre du Conseil',
-      emailAddress: 'Courrier Électronique',
-      phoneNumber: 'Téléphone / WhatsApp',
-      additionalNotes: 'Nom de la copropriété, localisation ou remarques',
-      next: 'Étape Suivante',
-      prev: 'Retour',
-      submit: 'Demander un Devis pour Mon Immeuble',
-      submitting: 'Envoi de la demande...',
-      successTitle: 'Demande de Devis Envoyée avec Succès !',
-      successMessage: 'Nous avons bien reçu vos informations. Un gestionnaire Gadmicon prendra contact avec vous rapidement.',
-      instantCalculation: 'Estimation Prévisionnelle de Gestion',
-      estimatedMonthly: 'Tarif Mensuel Estimé',
-      disclaimer: '*Tarif donné à titre indicatif sous réserve de visite technique des installations et équipements.',
-      requiredField: 'Ce champ est obligatoire.',
-      perMonth: '/ mois',
-      volumeDiscount: 'Remise pour volume d’unités appliquée',
-      unitSingular: 'unité',
-      unitPlural: 'unités',
-      servicesIncludedCount: 'services inclus',
-      options: {
-        properties: [
-          { id: 'torre_residencial', label: 'Tour Résidentielle', desc: 'Immeuble avec espaces communs, ascenseurs et générateur' },
-          { id: 'residencial_horizontal', label: 'Résidence Fermée', desc: 'Ensemble d’appartements bas o maisons en copropriété' },
-          { id: 'plaza_comercial', label: 'Centre Commercial / Mixte', desc: 'Boutiques, bureaux et parkings communs' },
-          { id: 'villa_lujo', label: 'Villas ou Domaine Privé', desc: 'Propriétés d’exception avec jardins et piscines' },
-        ],
-        services: [
-          { id: 'gestion_contable', label: 'Gestion Comptable & Recouvrement', desc: 'Facturation des appels de fonds et suivi financier' },
-          { id: 'mantenimiento_tecnico', label: 'Maintenance Technique', desc: 'Supervision des groupes électrogènes et équipements' },
-          { id: 'limpieza_conserjeria', label: 'Nettoyage & Conciergerie', desc: 'Personnel qualifié pour la propreté des communs' },
-          { id: 'asesoria_legal', label: 'Accompagnement Loi 5038', desc: 'Gestion des assemblées générales et règlements' },
-        ],
-      },
-    },
+
     console: {
       title: 'Espace d’Information Client',
       subtitle: 'Supervision des demandes et suivi du système.',
