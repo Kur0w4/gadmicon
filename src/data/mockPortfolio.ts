@@ -9,6 +9,12 @@ export const initialProjects: PortfolioProject[] = [
     units_count: 36,
     year_completed: 2024,
     featured: true,
+    services_provided: [
+      'Administración Contable y Cobranzas',
+      'Mantenimiento de Planta Eléctrica y Bombas',
+      'Conserjería 24/7 y Control de Acceso',
+      'Supervisión de Ascensores y Áreas Sociales'
+    ],
     created_at: '2024-01-15T10:00:00.000Z',
     main_image_url: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80',
     gallery_urls: [
@@ -30,6 +36,12 @@ export const initialProjects: PortfolioProject[] = [
     units_count: 1,
     year_completed: 2023,
     featured: true,
+    services_provided: [
+      'Gestión Integral de Renta Corta y Lujo',
+      'Supervisión de Muelle Privado, Piscina y Jardinería',
+      'Mantenimiento Técnico Preventivo Continuo',
+      'Rendición Contable y Reportes al Propietario'
+    ],
     created_at: '2024-02-10T14:30:00.000Z',
     main_image_url: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80',
     gallery_urls: [
@@ -50,6 +62,12 @@ export const initialProjects: PortfolioProject[] = [
     units_count: 48,
     year_completed: 2024,
     featured: true,
+    services_provided: [
+      'Recaudación Automatizada de Cuotas y Conciliación',
+      'Mantenimiento de Sistema Solar y Generador Eléctrico',
+      'Conserjería, Limpieza y Mantenimiento de Gimnasio',
+      'Cumplimiento Normativo y Asambleas (Ley 5038)'
+    ],
     created_at: '2024-03-01T09:15:00.000Z',
     main_image_url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80',
     gallery_urls: [
@@ -70,6 +88,12 @@ export const initialProjects: PortfolioProject[] = [
     units_count: 2,
     year_completed: 2023,
     featured: false,
+    services_provided: [
+      'Mantenimiento Preventivo de Climatización y Presurización',
+      'Supervisión de Helipuerto y Accesos Exclusivos',
+      'Seguridad Discreta y Conserjería de Alto Nivel',
+      'Auditoría Contable y Gestión de Proveedores Calificados'
+    ],
     created_at: '2024-03-22T16:45:00.000Z',
     main_image_url: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1600&q=80',
     gallery_urls: [
@@ -89,6 +113,12 @@ export const initialProjects: PortfolioProject[] = [
     units_count: 18,
     year_completed: 2024,
     featured: false,
+    services_provided: [
+      'Protocolos de Convivencia y Registro de Renta Vacacional',
+      'Mantenimiento de Cisternas e Infraestructura Costera',
+      'Housekeeping Ecológico y Cuidado de Áreas Verdes',
+      'Atención Multicanal Continua a Propietarios'
+    ],
     created_at: '2024-04-12T11:00:00.000Z',
     main_image_url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80',
     gallery_urls: [

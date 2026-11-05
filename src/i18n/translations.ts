@@ -6,6 +6,7 @@ export interface Translations {
     services: string;
     projects: string;
     contact: string;
+    quote: string;
     console: string;
     ctaContact: string;
   };
@@ -22,11 +23,22 @@ export interface Translations {
     title: string;
     subtitle: string;
     badge: string;
+    viewDetails: string;
+    modalClose: string;
+    modalCta: string;
+    scopeTitle: string;
+    benefitTitle: string;
+    modalityTitle: string;
     items: {
       id: string;
       title: string;
       desc: string;
       tags: string[];
+      details: {
+        scope: string[];
+        benefit: string;
+        modality: string;
+      };
     }[];
   };
   projects: {
@@ -43,6 +55,13 @@ export interface Translations {
     modalClose: string;
     unitSingular: string;
     unitPlural: string;
+    viewOnMap: string;
+    servicesTitle: string;
+    scopeTitle: string;
+    technicalInspection: string;
+    residentSupport: string;
+    managementLabel: string;
+    footerOfficial: string;
     categories: {
       all: string;
       torres: string;
@@ -61,6 +80,13 @@ export interface Translations {
       title: string;
       desc: string;
     }[];
+    cards: {
+      title: string;
+      desc: string;
+    }[];
+    mvvBadge: string;
+    mvvTitle: string;
+    mvvSubtitle: string;
   };
   contact: {
     title: string;
@@ -119,6 +145,19 @@ export interface Translations {
     backToTop: string;
     footerTaglineBottom: string;
   };
+  quote: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    propertyTypeLabel: string;
+    unitsLabel: string;
+    servicesLabel: string;
+    propertyTypes: { torre: string; villa: string; penthouse: string; comercial: string };
+    serviceOptions: { contable: string; mantenimiento: string; conserjeria: string; legal: string; atencion: string };
+    estimateLabel: string;
+    ctaButton: string;
+    disclaimer: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -128,6 +167,7 @@ export const translations: Record<Language, Translations> = {
       services: 'Servicios',
       projects: 'Condominios',
       contact: 'Contacto',
+      quote: 'Cotización',
       console: 'Portal Clientes',
       ctaContact: 'Solicitar Propuesta',
     },
@@ -144,42 +184,102 @@ export const translations: Record<Language, Translations> = {
       badge: 'Nuestros Servicios',
       title: 'Nuestros Servicios',
       subtitle: 'Nos encargamos de todos los aspectos operativos, financieros y legales para que vivir o invertir en su inmueble sea una experiencia grata y sin fricciones.',
+      viewDetails: 'Conocer más detalles',
+      modalClose: 'Cerrar',
+      modalCta: 'Solicitar Propuesta de este Servicio',
+      scopeTitle: 'Qué incluye este servicio',
+      benefitTitle: 'Beneficio clave para su propiedad',
+      modalityTitle: 'Modalidad de atención',
       items: [
         {
           id: 'gestion-integral',
           title: 'Administración Contable & Cobranzas',
           desc: 'Emisión de recibos de cuotas, cobranza preventiva, conciliación bancaria mensual, pago a suplidores y estados financieros transparentes para la asamblea.',
           tags: ['Cuentas Claras', 'Reporte Mensual', 'Gestión de Mora'],
+          details: {
+            scope: [
+              'Conciliación bancaria mensual y estados de cuenta en tiempo real para la junta de vecinos.',
+              'Emisión, entrega y seguimiento riguroso de recibos de cuotas de mantenimiento.',
+              'Gestión proactiva de cobranza preventiva y gestión de mora amigable o legal según la Ley 5038.'
+            ],
+            benefit: 'Cuentas claras, cero sorpresas y total rendición de cuentas ante la asamblea de condómines.',
+            modality: 'Supervisión Contable Continua & Cierre Mensual'
+          }
         },
         {
           id: 'mantenimiento-tecnico',
           title: 'Mantenimiento Preventivo & Correctivo',
           desc: 'Supervisión de generadores eléctricos, bombas sumergibles, cisternas, ascensores, portones eléctricos y pintura de áreas comunes.',
           tags: ['Inspección Semanal', 'Plantas Eléctricas', 'Proveedores Calificados'],
+          details: {
+            scope: [
+              'Inspección técnica semanal de plantas eléctricas, bombas sumergibles y cisternas.',
+              'Supervisión y fiscalización de contratos de ascensores, portones eléctricos y CCTV.',
+              'Protocolo de respuesta prioritaria ante contingencias y averías críticas del edificio.'
+            ],
+            benefit: 'Prolonga la vida útil de los equipos comunes y reduce costos de reparaciones mayores hasta en un 40%.',
+            modality: 'Visitas Semanales & Guardias Técnicas 24/7'
+          }
         },
         {
           id: 'housekeeping-5star',
           title: 'Limpieza, Conserjería y Jardinería',
           desc: 'Personal debidamente depurado y uniformado, protocolos rigurosos de aseo en lobbies y pasillos, y embellecimiento de áreas verdes.',
           tags: ['Personal Depurado', 'Lobbies Impecables', 'Jardines Cuidados'],
+          details: {
+            scope: [
+              'Protocolo diario de desinfección y aseo en vestíbulos, pasillos, ascensores y amenidades.',
+              'Conserjes y porteros uniformados, capacitados y debidamente depurados con vocación de servicio.',
+              'Mantenimiento continuo y embellecimiento paisajístico de jardines y zonas verdes comunes.'
+            ],
+            benefit: 'Instalaciones relucientes que enaltecen el prestigio del inmueble y elevan la calidad de vida.',
+            modality: 'Turnos Diarios Fijos & Supervisión Semanal'
+          }
         },
         {
           id: 'renta-vacacional',
           title: 'Gestión de Alquileres y Renta Corta',
           desc: 'Supervisión de reglas de convivencia para huéspedes, recepción, control de accesos y cuidado de las áreas comunes del edificio.',
           tags: ['Control de Huéspedes', 'Reglamento Interno', 'Seguridad de Acceso'],
+          details: {
+            scope: [
+              'Registro estricto y verificación de identidad de huéspedes al ingresar a la propiedad.',
+              'Fiscalización y cumplimiento riguroso del reglamento interno sobre ruidos y áreas comunes.',
+              'Inspección posterior a la estadía y reporte inmediato de anomalías al propietario.'
+            ],
+            benefit: 'Compatibilidad armónica entre el negocio turístico de los propietarios y la paz de los residentes permanentes.',
+            modality: 'Control Operativo Continuo 24/7'
+          }
         },
         {
           id: 'auditoria-dgii',
           title: 'Asesoría Legal y Cumplimiento Ley 5038',
           desc: 'Convocatoria formal de asambleas ordinarias y extraordinarias, redacción de actas, registro ante la DGII y cumplimiento normativo.',
           tags: ['Ley de Condominios', 'Asambleas Formales', 'DGII al Día'],
+          details: {
+            scope: [
+              'Convocatoria formal y reglamentaria de asambleas de condómines ordinarias y extraordinarias.',
+              'Redacción, protocolización y registro formal de actas de asamblea ante las autoridades.',
+              'Actualización y mantenimiento del RNC del condominio y cumplimiento tributario ante la DGII.'
+            ],
+            benefit: 'Blindaje jurídico total, evitando multas fiscales y controversias entre copropietarios.',
+            modality: 'Asesoría Jurídica Permanente & Acompañamiento en Asambleas'
+          }
         },
         {
           id: 'tecnologia-supabase',
           title: 'Atención y Comunicación Continua',
           desc: 'Canal directo de atención para condómines vía WhatsApp y correo, recepción de reportes técnicos y resolución rápida de incidencias.',
           tags: ['Atención Directa', 'Resolución Rápida', 'Vía WhatsApp'],
+          details: {
+            scope: [
+              'Canal directo y exclusivo de WhatsApp corporativo para reportes, dudas e incidencias.',
+              'Sistema ágil de seguimiento de solicitudes hasta su resolución y confirmación por el condómine.',
+              'Boletines y circulares periódicas sobre mantenimientos programados y estado de la comunidad.'
+            ],
+            benefit: 'Comunicación fluida y transparente; cada condómine se siente escuchado y respaldado los 365 días.',
+            modality: 'Atención Multicanal Lunes a Sábado + Emergencias 24/7'
+          }
         },
       ],
     },
@@ -197,6 +297,13 @@ export const translations: Record<Language, Translations> = {
       modalClose: 'Cerrar Ficha',
       unitSingular: 'unidad',
       unitPlural: 'unidades',
+      viewOnMap: 'Ver ubicación en Google Maps',
+      servicesTitle: 'Servicios Prestados por Gadmicon',
+      scopeTitle: 'Alcance de la Administración en este Inmueble',
+      technicalInspection: 'Inspección Semanal',
+      residentSupport: 'Atención WhatsApp 24/7',
+      managementLabel: 'Gestión Operativa',
+      footerOfficial: 'Inmueble administrado bajo los estándares de transparencia y calidad de Gadmicon S.R.L.',
       categories: {
         all: 'Todos los Inmuebles',
         torres: 'Torres Residenciales',
@@ -229,6 +336,23 @@ export const translations: Record<Language, Translations> = {
           desc: 'Cuidamos cada detalle arquitectónico y las áreas comunes para que el valor de mercado de cada inmueble crezca consistentemente año tras año.',
         },
       ],
+      cards: [
+        {
+          title: 'Misión',
+          desc: 'Brindar una administración integral, transparente y rigurosa de condominios y propiedades residenciales, garantizando la preservación patrimonial, el orden financiero y la tranquilidad de cada comunidad.',
+        },
+        {
+          title: 'Visión',
+          desc: 'Ser el referente líder en administración condominal e inmobiliaria en República Dominicana, reconocidos por nuestra innovación, transparencia absoluta y excelencia operativa.',
+        },
+        {
+          title: 'Valores',
+          desc: 'Transparencia contable, integridad, compromiso con la comunidad, eficiencia operativa y vocación de servicio permanente.',
+        },
+      ],
+      mvvBadge: 'Filosofía & Propósito',
+      mvvTitle: 'Misión, Visión y Valores',
+      mvvSubtitle: 'Los principios fundamentales que rigen cada una de nuestras decisiones y garantizan el valor de su comunidad.',
     },
     contact: {
       title: 'Conversemos sobre las necesidades de su condominio',
@@ -287,6 +411,19 @@ export const translations: Record<Language, Translations> = {
       backToTop: 'Volver al inicio',
       footerTaglineBottom: 'Administración de Condominios • Plazas • Apartamentos',
     },
+    quote: {
+      badge: 'Calculadora de Cotización',
+      title: 'Estima tu propuesta',
+      subtitle: 'Obtén un estimado mensual ajustado a tu propiedad y los servicios que necesitas.',
+      propertyTypeLabel: 'Tipo de propiedad',
+      unitsLabel: 'Número de unidades',
+      servicesLabel: 'Servicios requeridos',
+      propertyTypes: { torre: 'Torre / Residencial', villa: 'Villa', penthouse: 'Penthouse', comercial: 'Plaza Comercial' },
+      serviceOptions: { contable: 'Administración Contable', mantenimiento: 'Mantenimiento Técnico', conserjeria: 'Conserjería / Limpieza', legal: 'Gestión Legal', atencion: 'Atención a Residentes' },
+      estimateLabel: 'Estimado mensual',
+      ctaButton: 'Solicitar Propuesta Personalizada',
+      disclaimer: 'Estimado referencial • Propuesta final a confirmar con nuestro equipo',
+    },
   },
   en: {
     nav: {
@@ -294,6 +431,7 @@ export const translations: Record<Language, Translations> = {
       services: 'Services',
       projects: 'Managed Properties',
       contact: 'Contact',
+      quote: 'Quote',
       console: 'Client Portal',
       ctaContact: 'Request Proposal',
     },
@@ -310,42 +448,102 @@ export const translations: Record<Language, Translations> = {
       badge: 'Our Services',
       title: 'Our Services',
       subtitle: 'We handle all operational, financial, and legal aspects so living or investing in your property is a pleasant, hassle-free experience.',
+      viewDetails: 'View Service Details',
+      modalClose: 'Close',
+      modalCta: 'Request Proposal for this Service',
+      scopeTitle: 'What this service includes',
+      benefitTitle: 'Key benefit for your property',
+      modalityTitle: 'Service modality',
       items: [
         {
           id: 'gestion-integral',
           title: 'Accounting & Collection Management',
           desc: 'Monthly HOA fee billing, proactive collection, bank reconciliation, vendor payments, and transparent financial statements for general assemblies.',
           tags: ['Clear Accounting', 'Monthly Reports', 'Arrears Management'],
+          details: {
+            scope: [
+              'Monthly bank reconciliation and real-time financial statements for the board.',
+              'Timely issuance, distribution, and systematic tracking of HOA fee statements.',
+              'Proactive collection strategy and amicable or legal dispute handling under Law 5038.'
+            ],
+            benefit: 'Clear accounting, zero financial surprises, and total accountability before the general assembly.',
+            modality: 'Continuous Accounting Supervision & Monthly Closing'
+          }
         },
         {
           id: 'mantenimiento-tecnico',
           title: 'Preventive & Corrective Maintenance',
           desc: 'Supervision of power generators, submersible pumps, water cisterns, elevators, electric gates, and common area maintenance.',
           tags: ['Weekly Inspection', 'Power Generators', 'Vetted Vendors'],
+          details: {
+            scope: [
+              'Weekly technical inspection of backup power plants, submersible pumps, and water cisterns.',
+              'Contract auditing and performance oversight for elevators, electric gates, and CCTV.',
+              'Rapid emergency response protocols for critical electrical and hydraulic infrastructure.'
+            ],
+            benefit: 'Extends the operational lifespan of shared equipment and cuts major breakdown costs by up to 40%.',
+            modality: 'Weekly Site Inspections & 24/7 Technical On-Call'
+          }
         },
         {
           id: 'housekeeping-5star',
           title: 'Janitorial & Gardening Services',
           desc: 'Vetted, uniformed staff following strict cleaning protocols for lobbies and hallways, along with landscape maintenance.',
           tags: ['Vetted Staff', 'Spotless Lobbies', 'Landscaping'],
+          details: {
+            scope: [
+              'Daily sanitation and cleaning routines for lobbies, elevators, corridors, and amenities.',
+              'Vetted, background-checked, and impeccably uniformed staff trained in customer service.',
+              'Continuous horticultural care and landscape beautification for shared green spaces.'
+            ],
+            benefit: 'Immaculate common areas that elevate property prestige and improve resident quality of life.',
+            modality: 'Full-Time Daily Shifts & Weekly Supervisory Audits'
+          }
         },
         {
           id: 'renta-vacacional',
           title: 'Short-Term Rental & Access Oversight',
           desc: 'Community guideline enforcement for guest stays, front desk reception, access control, and protection of shared amenities.',
           tags: ['Guest Control', 'House Rules', 'Access Security'],
+          details: {
+            scope: [
+              'Mandatory guest registration and digital identity verification at security checkpoints.',
+              'Strict enforcement of community noise ordinances, pool rules, and amenity access.',
+              'Post-checkout visual review and immediate incident reporting to unit owners.'
+            ],
+            benefit: 'Harmonious coexistence between vacation rental profitability and full-time residents’ peace of mind.',
+            modality: '24/7 Continuous Access & Security Supervision'
+          }
         },
         {
           id: 'auditoria-dgii',
           title: 'Legal & Condominium Law Compliance',
           desc: 'Formal assembly convocations, meeting minutes drafting, DGII tax registration, and regulatory compliance under Law 5038.',
           tags: ['Condo Law 5038', 'Formal Assemblies', 'DGII Tax Status'],
+          details: {
+            scope: [
+              'Statutory convocation and formal preparation of annual and extraordinary assemblies.',
+              'Drafting, legalization, and official registration of condominium meeting minutes.',
+              'Maintenance and updating of condominium tax registration (RNC) with DGII authorities.'
+            ],
+            benefit: 'Complete legal protection, preventing fiscal sanctions and avoiding disputes between owners.',
+            modality: 'Ongoing Legal Counsel & Assembly Representation'
+          }
         },
         {
           id: 'tecnologia-supabase',
           title: 'Direct Resident Support & Communication',
           desc: 'Direct WhatsApp and email support channel for owners and board members, rapid ticket response, and incident resolution.',
           tags: ['Direct Support', 'Rapid Resolution', 'WhatsApp Channel'],
+          details: {
+            scope: [
+              'Direct, dedicated corporate WhatsApp channel for owners to report inquiries and maintenance issues.',
+              'Digital ticket tracking until final resolution and verification by the resident.',
+              'Regular informational circulars regarding scheduled maintenance and community updates.'
+            ],
+            benefit: 'Transparent, immediate communication ensuring every owner feels backed and informed 365 days a year.',
+            modality: 'Multi-Channel Support Mon–Sat + 24/7 Emergency Line'
+          }
         },
       ],
     },
@@ -363,6 +561,13 @@ export const translations: Record<Language, Translations> = {
       modalClose: 'Close Details',
       unitSingular: 'unit',
       unitPlural: 'units',
+      viewOnMap: 'View location on Google Maps',
+      servicesTitle: 'Services Provided by Gadmicon',
+      scopeTitle: 'Management Scope in this Property',
+      technicalInspection: 'Weekly Technical Inspection',
+      residentSupport: '24/7 WhatsApp Support',
+      managementLabel: 'Operational Management',
+      footerOfficial: 'Property managed under Gadmicon S.R.L. transparency and quality standards.',
       categories: {
         all: 'All Properties',
         torres: 'Residential Towers',
@@ -395,6 +600,23 @@ export const translations: Record<Language, Translations> = {
           desc: 'We care for every architectural detail and common area so your property value consistently grows year after year.',
         },
       ],
+      cards: [
+        {
+          title: 'Mission',
+          desc: 'To deliver comprehensive, transparent, and rigorous management of condominiums and residential communities, ensuring asset preservation, financial order, and peace of mind for every resident.',
+        },
+        {
+          title: 'Vision',
+          desc: 'To be the leading and benchmark property and condominium management firm in the Dominican Republic, recognized for innovation, absolute transparency, and operational excellence.',
+        },
+        {
+          title: 'Values',
+          desc: 'Financial transparency, integrity, community commitment, operational efficiency, and a continuous dedication to service.',
+        },
+      ],
+      mvvBadge: 'Philosophy & Purpose',
+      mvvTitle: 'Mission, Vision & Values',
+      mvvSubtitle: 'The foundational principles that guide every decision and protect your community’s long-term value.',
     },
     contact: {
       title: 'Let’s discuss your condominium’s needs',
@@ -453,6 +675,19 @@ export const translations: Record<Language, Translations> = {
       backToTop: 'Back to top',
       footerTaglineBottom: 'Condominium • Plaza • Apartment Management',
     },
+    quote: {
+      badge: 'Quote Calculator',
+      title: 'Estimate your proposal',
+      subtitle: 'Get a monthly estimate tailored to your property and the services you need.',
+      propertyTypeLabel: 'Property type',
+      unitsLabel: 'Number of units',
+      servicesLabel: 'Required services',
+      propertyTypes: { torre: 'Tower / Residential', villa: 'Villa', penthouse: 'Penthouse', comercial: 'Commercial Plaza' },
+      serviceOptions: { contable: 'Accounting Management', mantenimiento: 'Technical Maintenance', conserjeria: 'Concierge / Cleaning', legal: 'Legal Management', atencion: 'Resident Support' },
+      estimateLabel: 'Monthly estimate',
+      ctaButton: 'Request a Custom Proposal',
+      disclaimer: 'Reference estimate • Final proposal confirmed by our team',
+    },
   },
   fr: {
     nav: {
@@ -460,6 +695,7 @@ export const translations: Record<Language, Translations> = {
       services: 'Services',
       projects: 'Copropriétés',
       contact: 'Contact',
+      quote: 'Devis',
       console: 'Espace Client',
       ctaContact: 'Demander un Devis',
     },
@@ -476,42 +712,102 @@ export const translations: Record<Language, Translations> = {
       badge: 'Nos Services',
       title: 'Nos Services',
       subtitle: 'Nous prenons en charge tous les aspects opérationnels, financiers et juridiques pour que votre bien fonctionne sans friction.',
+      viewDetails: 'Découvrir les détails',
+      modalClose: 'Fermer',
+      modalCta: 'Demander un Devis pour ce Service',
+      scopeTitle: 'Ce qui est inclus dans ce service',
+      benefitTitle: 'Bénéfice principal pour votre bien',
+      modalityTitle: 'Modalité d’intervention',
       items: [
         {
           id: 'gestion-integral',
           title: 'Gestion Comptable & Recouvrement',
           desc: 'Facturation des charges, recouvrement préventif, rapprochement bancaire et bilans financiers transparents pour l’assemblée générale.',
           tags: ['Comptabilité Claire', 'Rapports Mensuels', 'Gestion du Retard'],
+          details: {
+            scope: [
+              'Rapprochement bancaire mensuel et bilans en temps réel pour le conseil syndical.',
+              'Émission et suivi rigoureux des appels de charges de copropriété.',
+              'Gestion proactive et amiable des impayés selon le cadre de la Loi 5038.'
+            ],
+            benefit: 'Comptabilité limpide, zéro mauvaise surprise et bilan transparent pour l’assemblée.',
+            modality: 'Suivi Comptable Continu & Clôture Mensuelle'
+          }
         },
         {
           id: 'mantenimiento-tecnico',
           title: 'Maintenance Préventive & Technique',
           desc: 'Supervision des générateurs, pompes, cisternes, ascenseurs, portails électriques et entretien des espaces communs.',
           tags: ['Inspection Hebdomadaire', 'Groupes Électrogènes', 'Prestataires Qualifiés'],
+          details: {
+            scope: [
+              'Inspection technique hebdomadaire des générateurs, pompes et citernes d’eau.',
+              'Supervision et audit des contrats d’ascenseurs, portails et vidéosurveillance.',
+              'Protocole d’intervention prioritaire en cas de panne technique critique.'
+            ],
+            benefit: 'Prolonge la durée de vie des équipements et réduit les coûts de réparation d’urgence jusqu’à 40%.',
+            modality: 'Visites Hebdomadaires & Urgences Techniques 24/7'
+          }
         },
         {
           id: 'housekeeping-5star',
           title: 'Nettoyage & Conciergerie',
           desc: 'Personnel formé et uniformisé, règles strictes d’hygiène pour les halls et couloirs, et entretien des espaces verts.',
           tags: ['Personnel Vérifié', 'Halls Impeccables', 'Espaces Verts'],
+          details: {
+            scope: [
+              'Protocole d’entretien quotidien des halls d’accueil, couloirs et espaces partagés.',
+              'Personnel de conciergerie vérifié, formé et vêtu d’un uniforme impeccable.',
+              'Entretien paysager régulier des espaces verts et jardins de la résidence.'
+            ],
+            benefit: 'Des espaces impeccables qui valorisent le standing de la résidence et le confort des copropriétaires.',
+            modality: 'Présence Quotidienne & Contrôles Hebdomadaires'
+          }
         },
         {
           id: 'renta-vacacional',
           title: 'Gestion des Accès & Séjours',
           desc: 'Supervision du règlement intérieur pour les visiteurs, accueil et contrôle des accès pour la sécurité des résidents.',
           tags: ['Contrôle Accès', 'Règlement Intérieur', 'Sécurité'],
+          details: {
+            scope: [
+              'Enregistrement rigoureux et vérification d’identité des voyageurs aux entrées.',
+              'Application stricte du règlement intérieur concernant le bruit et les équipements communs.',
+              'Contrôle post-séjour et signalement immédiat d’éventuelles anomalies aux propriétaires.'
+            ],
+            benefit: 'Équilibre harmonieux entre rentabilité locative et tranquillité des résidents permanents.',
+            modality: 'Supervision Opérationnelle 24/7'
+          }
         },
         {
           id: 'auditoria-dgii',
           title: 'Conformité Juridique & Loi 5038',
           desc: 'Convocation formelle des assemblées, rédaction des procès-verbaux, démarches DGII et respect des réglementations.',
           tags: ['Loi Copropriété 5038', 'Assemblées Formalisées', 'DGII à Jour'],
+          details: {
+            scope: [
+              'Organisation et convocation formelle des assemblées générales ordinaires et extraordinaires.',
+              'Rédaction, enregistrement légal et procès-verbaux d’assemblée.',
+              'Mise à jour du statut fiscal DGII et conformité juridique sous la Loi 5038.'
+            ],
+            benefit: 'Sécurité juridique totale, évitant pénalités fiscales et litiges entre copropriétaires.',
+            modality: 'Conseil Juridique Permanent & Tenue des Assemblées'
+          }
         },
         {
           id: 'tecnologia-supabase',
           title: 'Communication & Assistance Résidents',
           desc: 'Canal direct via WhatsApp et e-mail pour les résidents, prise en charge rapide des demandes techniques et incidents.',
           tags: ['Assistance Directe', 'Réponse Rapide', 'Canal WhatsApp'],
+          details: {
+            scope: [
+              'Canal direct WhatsApp pour signalements, requêtes et demandes d’assistance.',
+              'Suivi digitalisé des tickets d’incident jusqu’à leur résolution et validation.',
+              'Circulaires régulières et avis d’information pour les résidents de la copropriété.'
+            ],
+            benefit: 'Communication fluide et réactive; chaque copropriétaire est écouté et assisté 365 jours par an.',
+            modality: 'Assistance Multicanal Lun–Sam + Urgences 24/7'
+          }
         },
       ],
     },
@@ -529,6 +825,13 @@ export const translations: Record<Language, Translations> = {
       modalClose: 'Fermer',
       unitSingular: 'unité',
       unitPlural: 'unités',
+      viewOnMap: 'Voir l’emplacement sur Google Maps',
+      servicesTitle: 'Services Assurés par Gadmicon',
+      scopeTitle: 'Périmètre de Gestion de cet Immeuble',
+      technicalInspection: 'Inspection Hebdomadaire',
+      residentSupport: 'Assistance WhatsApp 24/7',
+      managementLabel: 'Gestion Opérationnelle',
+      footerOfficial: 'Copropriété gérée selon les normes de transparence et qualité Gadmicon S.R.L.',
       categories: {
         all: 'Tous les Biens',
         torres: 'Tours Résidentielles',
@@ -561,6 +864,23 @@ export const translations: Record<Language, Translations> = {
           desc: 'Protection des détails architecturaux et des espaces communs pour assurer la plus-value de votre bien.',
         },
       ],
+      cards: [
+        {
+          title: 'Mission',
+          desc: 'Offrir une gestion intégrale, transparente et rigoureuse des copropriétés et résidences, en assurant la préservation du patrimoine, la clarté financière et la sérénité de chaque communauté.',
+        },
+        {
+          title: 'Vision',
+          desc: 'Être la référence et le leader de la gestion de copropriétés et biens immobiliers en République Dominicaine, reconnu pour notre innovation, notre transparence absolue et notre excellence.',
+        },
+        {
+          title: 'Valeurs',
+          desc: 'Transparence comptable, intégrité, engagement communautaire, efficacité opérationnelle et sens du service continu.',
+        },
+      ],
+      mvvBadge: 'Philosophie & Vision',
+      mvvTitle: 'Mission, Vision & Valeurs',
+      mvvSubtitle: 'Les principes fondamentaux qui guident nos décisions et préservent la valeur de votre communauté.',
     },
     contact: {
       title: 'Échangeons sur les besoins de votre copropriété',
@@ -618,6 +938,19 @@ export const translations: Record<Language, Translations> = {
       customerService: 'Service Client',
       backToTop: 'Haut de page',
       footerTaglineBottom: 'Administration de Copropriétés • Immeubles • Appartements',
+    },
+    quote: {
+      badge: 'Calculateur de Devis',
+      title: 'Estimez votre proposition',
+      subtitle: 'Obtenez une estimation mensuelle adaptée à votre propriété et aux services dont vous avez besoin.',
+      propertyTypeLabel: 'Type de propriété',
+      unitsLabel: 'Nombre d\'unités',
+      servicesLabel: 'Services requis',
+      propertyTypes: { torre: 'Tour / Résidentiel', villa: 'Villa', penthouse: 'Penthouse', comercial: 'Plaza Commerciale' },
+      serviceOptions: { contable: 'Gestion Comptable', mantenimiento: 'Maintenance Technique', conserjeria: 'Conciergerie / Nettoyage', legal: 'Gestion Juridique', atencion: 'Support Résidents' },
+      estimateLabel: 'Estimation mensuelle',
+      ctaButton: 'Demander une Proposition Personnalisée',
+      disclaimer: 'Estimation indicative • Proposition finale confirmée par notre équipe',
     },
   },
 };

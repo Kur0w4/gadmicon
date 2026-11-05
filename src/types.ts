@@ -15,4 +15,5 @@ export interface PortfolioProject {
   units_count?: number;
   year_completed?: number;
   featured?: boolean;
+  services_provided?: string[];
 }

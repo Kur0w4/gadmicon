@@ -14,6 +14,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { QuoteSection } from './components/QuoteSection';
 import { LegalModal, CookieBanner, LegalModalType } from './components/LegalModal';
 
 export default function App() {
@@ -66,13 +67,15 @@ export default function App() {
 
         <AboutSection t={t} onNavigateToContact={() => handleNavigate('contacto')} />
 
-        <ServicesSection t={t} />
+        <ServicesSection t={t} onNavigateToContact={() => handleNavigate('contacto')} />
 
         <ProjectsSection
           projects={projects}
           currentLang={currentLang}
           t={t}
         />
+
+        <QuoteSection t={t} currency={currency} onNavigateToContact={() => handleNavigate('contacto')} />
 
         <ContactSection t={t} />
       </main>
