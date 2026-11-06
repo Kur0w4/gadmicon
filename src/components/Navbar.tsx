@@ -46,9 +46,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             className="flex items-center gap-3 group text-left focus:outline-none cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 p-[1px] shadow-sm">
-              <div className="w-full h-full bg-white rounded-[11px] flex items-center justify-center group-hover:bg-blue-50 transition-colors">
-                <Building2 className="w-5 h-5 text-blue-600 group-hover:text-blue-700 transition-colors" />
+            <div className="w-10 h-10">
+              <div className="w-full h-full flex items-center justify-center transition-colors">
+                <img
+                  src="/build/assets/gadmicon.png"
+                  alt="Logo GADMICON"
+                  className="w-full h-full object-contain"
+
+                />
               </div>
             </div>
             <div>
@@ -70,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={`nav-link-${item.id}`}
                   onClick={() => onNavigate(item.id)}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${isActive
-                    ? 'text-blue-700 bg-blue-50/80 shadow-xs border border-blue-200/80 font-semibold'
+                    ? 'text-red-700 bg-red-50/80 shadow-xs border border-red-200/80 font-semibold'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                 >
@@ -91,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 id="curr-usd-btn"
                 onClick={() => onCurrencyChange('USD')}
                 className={`px-2.5 py-1 rounded transition-colors ${currency === 'USD'
-                  ? 'bg-blue-50 text-blue-700 shadow-xs border border-blue-200'
+                  ? 'bg-red-50 text-red-700 shadow-xs border border-red-200'
                   : 'text-slate-500 hover:text-slate-900'
                   }`}
               >
@@ -101,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 id="curr-dop-btn"
                 onClick={() => onCurrencyChange('DOP')}
                 className={`px-2.5 py-1 rounded transition-colors ${currency === 'DOP'
-                  ? 'bg-blue-50 text-blue-700 shadow-xs border border-blue-200'
+                  ? 'bg-red-50 text-red-700 shadow-xs border border-red-200'
                   : 'text-slate-500 hover:text-slate-900'
                   }`}
               >
@@ -118,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={`lang-${lang}-btn`}
                   onClick={() => onLanguageChange(lang)}
                   className={`px-2 py-1 uppercase rounded text-xs transition-colors ${currentLang === lang
-                    ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs border border-blue-200'
+                    ? 'bg-red-50 text-red-700 font-semibold shadow-xs border border-red-200'
                     : 'text-slate-500 hover:text-slate-900'
                     }`}
                 >
@@ -131,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="navbar-cta-contact-btn"
               onClick={() => onNavigate('cotizacion')}
-              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow flex items-center gap-1.5 cursor-pointer"
             >
               <span>{t.nav.ctaContact}</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -162,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onNavigate(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`text-left px-3 py-2 rounded-md text-sm font-medium ${activeSection === item.id ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+                className={`text-left px-3 py-2 rounded-md text-sm font-medium ${activeSection === item.id ? 'bg-red-50 text-red-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
                   }`}
               >
                 {item.label}
@@ -177,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={lang}
                   onClick={() => onLanguageChange(lang)}
-                  className={`px-2.5 py-1 text-xs uppercase rounded ${currentLang === lang ? 'bg-blue-50 text-blue-700 font-bold shadow-xs border border-blue-200' : 'text-slate-500'
+                  className={`px-2.5 py-1 text-xs uppercase rounded ${currentLang === lang ? 'bg-red-50 text-red-700 font-bold shadow-xs border border-red-200' : 'text-slate-500'
                     }`}
                 >
                   {lang}
@@ -188,13 +193,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex items-center gap-1 bg-white rounded p-1 border border-slate-200 text-xs shadow-2xs">
               <button
                 onClick={() => onCurrencyChange('USD')}
-                className={`px-2 py-1 rounded ${currency === 'USD' ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs border border-blue-200' : 'text-slate-500'}`}
+                className={`px-2 py-1 rounded ${currency === 'USD' ? 'bg-red-50 text-red-700 font-semibold shadow-xs border border-red-200' : 'text-slate-500'}`}
               >
                 USD
               </button>
               <button
                 onClick={() => onCurrencyChange('DOP')}
-                className={`px-2 py-1 rounded ${currency === 'DOP' ? 'bg-blue-50 text-blue-700 font-semibold shadow-xs border border-blue-200' : 'text-slate-500'}`}
+                className={`px-2 py-1 rounded ${currency === 'DOP' ? 'bg-red-50 text-red-700 font-semibold shadow-xs border border-red-200' : 'text-slate-500'}`}
               >
                 DOP
               </button>
@@ -207,7 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onNavigate('cotizacion');
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full py-2.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>{t.nav.ctaContact}</span>
               <ChevronRight className="w-3.5 h-3.5" />

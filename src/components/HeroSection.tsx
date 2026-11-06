@@ -35,12 +35,11 @@ const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
   }, [text]);
 
   return (
-    <span className="text-blue-600 font-extrabold inline-block">
+    <span className="text-red-600 font-extrabold inline-block">
       {displayedText}
       <span
-        className={`inline-block w-[3px] h-[0.8em] bg-blue-600 ml-1.5 align-middle transition-opacity ${
-          isTypingComplete ? 'animate-pulse' : 'opacity-100'
-        }`}
+        className={`inline-block w-[3px] h-[0.8em] bg-red-600 ml-1.5 align-middle transition-opacity ${isTypingComplete ? 'animate-pulse' : 'opacity-100'
+          }`}
       />
     </span>
   );
@@ -55,8 +54,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section className="relative bg-gradient-to-b from-slate-50/60 via-white to-white pt-8 pb-16 lg:pt-14 lg:pb-20 overflow-hidden border-b border-slate-100">
 
       {/* Background Decorative Accents */}
-      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-blue-50/40 to-transparent pointer-events-none" />
-      <div className="absolute top-10 left-10 -z-10 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-red-50/40 to-transparent pointer-events-none" />
+      <div className="absolute top-10 left-10 -z-10 w-72 h-72 bg-red-100/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -82,7 +81,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 id="hero-primary-cta"
                 onClick={onNavigateToContact}
-                className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-blue-500/15 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm tracking-wide transition-all shadow-md shadow-red-500/15 hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>{t.hero.ctaPrimary}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -102,10 +101,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="pt-1">
               <button
                 onClick={onNavigateToContact}
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors cursor-pointer group"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-red-600 transition-colors cursor-pointer group"
               >
-                <PhoneCall className="w-3.5 h-3.5 text-blue-600 group-hover:scale-110 transition-transform" />
-                <span>{t.hero.contactQuestion} <strong className="underline underline-offset-4 decoration-blue-300 group-hover:decoration-blue-600">{t.hero.contactAction}</strong></span>
+                <PhoneCall className="w-3.5 h-3.5 text-red-600 group-hover:scale-110 transition-transform" />
+                <span>{t.hero.contactQuestion} <strong className="underline underline-offset-4 decoration-red-300 group-hover:decoration-red-600">{t.hero.contactAction}</strong></span>
               </button>
             </div>
 

@@ -13,7 +13,7 @@ A modern, high-performance corporate platform and property management portal des
 ## 🚀 Live Demo & Deployment
 
 > **Production Deployment:**
-> 🌐 **Live URL:** [https://your-deployment-link-here.com](https://your-deployment-link-here.com) *(Replace with your live deploy URL)*
+> 🌐 **Live URL:** [https://gadmicon.com](https://gadmicon.com)
 
 | Environment | Status | URL |
 | :--- | :--- | :--- |
@@ -24,11 +24,11 @@ A modern, high-performance corporate platform and property management portal des
 
 ## 📸 Screenshots & Visual Preview
 
-<!-- Place your application screenshots in the ./public/screenshots/ or assets directory and update the paths below -->
+
 
 ### 🖥️ Desktop Overview & Hero Section
 ```markdown
-![Hero & Value Proposition Section](./public/screenshots/hero-desktop.png)
+![Hero & Value Proposition Section](/public/screenshots/hero.png)
 ```
 > *Placeholder: Add screenshot of the Hero Section with the interactive quick estimate widget.*
 
