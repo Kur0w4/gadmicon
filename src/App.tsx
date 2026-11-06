@@ -23,6 +23,7 @@ export default function App() {
   const [currency, setCurrency] = useState<Currency>('USD');
   const [activeSection, setActiveSection] = useState<string>('home');
   const [projects, setProjects] = useState<PortfolioProject[]>(getPortfolioProjects());
+  const [quotePreset, setQuotePreset] = useState<{ serviceId?: string; category?: string } | undefined>();
 
   const t = translations[currentLang] || translations.es;
 
@@ -41,6 +42,11 @@ export default function App() {
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  const handleNavigateToQuote = (preset: { serviceId?: string; category?: string }) => {
+    setQuotePreset(preset);
+    handleNavigate('cotizacion');
   };
 
   return (
@@ -67,15 +73,20 @@ export default function App() {
 
         <AboutSection t={t} onNavigateToContact={() => handleNavigate('contacto')} />
 
-        <ServicesSection t={t} onNavigateToContact={() => handleNavigate('contacto')} />
+        <ServicesSection
+          t={t}
+          onNavigateToContact={() => handleNavigate('contacto')}
+          onNavigateToQuote={(serviceId) => handleNavigateToQuote({ serviceId })}
+        />
 
         <ProjectsSection
           projects={projects}
           currentLang={currentLang}
           t={t}
+          onNavigateToQuote={(category) => handleNavigateToQuote({ category })}
         />
 
-        <QuoteSection t={t} currency={currency} onNavigateToContact={() => handleNavigate('contacto')} />
+        <QuoteSection t={t} currency={currency} onNavigateToContact={() => handleNavigate('contacto')} preset={quotePreset} />
 
         <ContactSection t={t} />
       </main>

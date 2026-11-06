@@ -18,6 +18,7 @@ import { Translations } from '../i18n/translations';
 interface ProjectDetailModalProps {
   project: PortfolioProject | null;
   onClose: () => void;
+  onNavigateToQuote?: (category: string) => void;
   currentLang: Language;
   t: Translations;
 }
@@ -52,6 +53,7 @@ const DEFAULT_SERVICES_BY_CATEGORY: Record<string, string[]> = {
 export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   project,
   onClose,
+  onNavigateToQuote,
   currentLang,
   t,
 }) => {
@@ -299,12 +301,23 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               <span className="text-xs text-slate-500 text-center sm:text-left">
                 {t.projects.footerOfficial}
               </span>
-              <button
-                onClick={onClose}
-                className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors cursor-pointer w-full sm:w-auto"
-              >
-                {t.projects.modalClose}
-              </button>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                {onNavigateToQuote && (
+                  <button
+                    onClick={() => { onClose(); onNavigateToQuote(project.category); }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors cursor-pointer flex-1 sm:flex-none justify-center"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                    {t.projects.quoteProject}
+                  </button>
+                )}
+                <button
+                  onClick={onClose}
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors cursor-pointer flex-1 sm:flex-none"
+                >
+                  {t.projects.modalClose}
+                </button>
+              </div>
             </div>
 
           </div>

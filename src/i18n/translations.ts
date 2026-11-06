@@ -62,6 +62,7 @@ export interface Translations {
     residentSupport: string;
     managementLabel: string;
     footerOfficial: string;
+    quoteProject: string;
     categories: {
       all: string;
       torres: string;
@@ -149,11 +150,38 @@ export interface Translations {
     badge: string;
     title: string;
     subtitle: string;
+    modeGuided: string;
+    modeManual: string;
+    condoSelectionTitle: string;
+    condoSelectionSubtitle: string;
+    servicesSelectionTitle: string;
+    servicesSelectionSubtitle: string;
+    adjustUnitsLabel: string;
+    adjustUnitsHelp: string;
     propertyTypeLabel: string;
     unitsLabel: string;
     servicesLabel: string;
+    summaryPrefix: string;
+    unitsWord: string;
+    servicesWord: string;
+    switchToManual: string;
+    switchToGuided: string;
     propertyTypes: { torre: string; villa: string; penthouse: string; comercial: string };
     serviceOptions: { contable: string; mantenimiento: string; conserjeria: string; legal: string; atencion: string };
+    condoProfiles: {
+      torre: { name: string; desc: string; unitsHint: string };
+      residencial: { name: string; desc: string; unitsHint: string };
+      villa: { name: string; desc: string; unitsHint: string };
+      penthouse: { name: string; desc: string; unitsHint: string };
+      comercial: { name: string; desc: string; unitsHint: string };
+    };
+    serviceDescriptions: {
+      contable: { desc: string; tag: string };
+      mantenimiento: { desc: string; tag: string };
+      conserjeria: { desc: string; tag: string };
+      legal: { desc: string; tag: string };
+      atencion: { desc: string; tag: string };
+    };
     estimateLabel: string;
     ctaButton: string;
     disclaimer: string;
@@ -169,7 +197,7 @@ export const translations: Record<Language, Translations> = {
       contact: 'Contacto',
       quote: 'Cotización',
       console: 'Portal Clientes',
-      ctaContact: 'Solicitar Propuesta',
+      ctaContact: 'Solicitar Cotización',
     },
     hero: {
       headline: 'Tranquilidad, orden y valor para su comunidad condominal',
@@ -186,7 +214,7 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Nos encargamos de todos los aspectos operativos, financieros y legales para que vivir o invertir en su inmueble sea una experiencia grata y sin fricciones.',
       viewDetails: 'Conocer más detalles',
       modalClose: 'Cerrar',
-      modalCta: 'Solicitar Propuesta de este Servicio',
+      modalCta: 'Solicitar Cotización de este Servicio',
       scopeTitle: 'Qué incluye este servicio',
       benefitTitle: 'Beneficio clave para su propiedad',
       modalityTitle: 'Modalidad de atención',
@@ -304,6 +332,7 @@ export const translations: Record<Language, Translations> = {
       residentSupport: 'Atención WhatsApp 24/7',
       managementLabel: 'Gestión Operativa',
       footerOfficial: 'Inmueble administrado bajo los estándares de transparencia y calidad de Gadmicon S.R.L.',
+      quoteProject: 'Cotizar este tipo de propiedad',
       categories: {
         all: 'Todos los Inmuebles',
         torres: 'Torres Residenciales',
@@ -415,13 +444,86 @@ export const translations: Record<Language, Translations> = {
       badge: 'Calculadora de Cotización',
       title: 'Estima tu propuesta',
       subtitle: 'Obtén un estimado mensual ajustado a tu propiedad y los servicios que necesitas.',
+      modeGuided: 'Selección Guiada',
+      modeManual: 'Modo Manual',
+      condoSelectionTitle: '1. Elige tu tipo de condominio',
+      condoSelectionSubtitle: 'Selecciona el perfil que mejor represente a tu propiedad:',
+      servicesSelectionTitle: '2. Selecciona los servicios requeridos',
+      servicesSelectionSubtitle: 'Elige los servicios operativos y contables que Gadmicon gestionará:',
+      adjustUnitsLabel: 'Cantidad de unidades',
+      adjustUnitsHelp: 'Ajusta el número exacto si tu condominio difiere:',
       propertyTypeLabel: 'Tipo de propiedad',
       unitsLabel: 'Número de unidades',
       servicesLabel: 'Servicios requeridos',
-      propertyTypes: { torre: 'Torre / Residencial', villa: 'Villa', penthouse: 'Penthouse', comercial: 'Plaza Comercial' },
-      serviceOptions: { contable: 'Administración Contable', mantenimiento: 'Mantenimiento Técnico', conserjeria: 'Conserjería / Limpieza', legal: 'Gestión Legal', atencion: 'Atención a Residentes' },
+      summaryPrefix: 'Estimado basado en',
+      unitsWord: 'unidades',
+      servicesWord: 'servicios',
+      switchToManual: '¿Prefieres ajustar cada dato libremente? Cambiar a Modo Manual',
+      switchToGuided: 'Volver a Selección Guiada',
+      propertyTypes: {
+        torre: 'Torre / Residencial',
+        villa: 'Villa',
+        penthouse: 'Penthouse',
+        comercial: 'Plaza Comercial',
+      },
+      serviceOptions: {
+        contable: 'Administración Contable',
+        mantenimiento: 'Mantenimiento Técnico',
+        conserjeria: 'Conserjería / Limpieza',
+        legal: 'Gestión Legal',
+        atencion: 'Atención a Residentes',
+      },
+      condoProfiles: {
+        torre: {
+          name: 'Torre Residencial',
+          desc: 'Edificios verticales con ascensor, planta eléctrica, lobby y áreas sociales.',
+          unitsHint: '36 unidades típicas',
+        },
+        residencial: {
+          name: 'Condominio / Residencial',
+          desc: 'Complejos residenciales de casas, townhouses o edificios de baja densidad.',
+          unitsHint: '20 unidades típicas',
+        },
+        villa: {
+          name: 'Villa / Casa de Lujo',
+          desc: 'Propiedad individual exclusiva, casa vacacional o de playa con gestión integral.',
+          unitsHint: '1 unidad privada',
+        },
+        penthouse: {
+          name: 'Penthouse / Boutique',
+          desc: 'Residencias selectas con requerimientos de alta gama y mantenimiento continuo.',
+          unitsHint: '4 unidades',
+        },
+        comercial: {
+          name: 'Plaza Comercial / Mixta',
+          desc: 'Inmuebles comerciales, locales y oficinas con cobranza y operación activa.',
+          unitsHint: '16 locales típicos',
+        },
+      },
+      serviceDescriptions: {
+        contable: {
+          desc: 'Cobros, estados financieros mensuales, conciliaciones bancarias y pagos a suplidores.',
+          tag: 'Cuentas Claras',
+        },
+        mantenimiento: {
+          desc: 'Supervisión de generadores, bombas de agua, cisternas, ascensores y áreas comunes.',
+          tag: 'Inspección Técnica',
+        },
+        conserjeria: {
+          desc: 'Personal de conserjería calificado, control de accesos y limpieza profunda.',
+          tag: 'Personal 5 Estrellas',
+        },
+        legal: {
+          desc: 'Asambleas conformes a la Ley 5038, actas notariales y fiscalización de contratos.',
+          tag: 'Cumplimiento Legal',
+        },
+        atencion: {
+          desc: 'Canal de soporte WhatsApp 24/7 a condómines, gestión de quejas y renta vacacional.',
+          tag: 'Soporte 24/7',
+        },
+      },
       estimateLabel: 'Estimado mensual',
-      ctaButton: 'Solicitar Propuesta Personalizada',
+      ctaButton: 'Solicitar Cotización Personalizada',
       disclaimer: 'Estimado referencial • Propuesta final a confirmar con nuestro equipo',
     },
   },
@@ -433,7 +535,7 @@ export const translations: Record<Language, Translations> = {
       contact: 'Contact',
       quote: 'Quote',
       console: 'Client Portal',
-      ctaContact: 'Request Proposal',
+      ctaContact: 'Request Quote',
     },
     hero: {
       headline: 'Peace of mind, transparency, and value for your residential community',
@@ -450,7 +552,7 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'We handle all operational, financial, and legal aspects so living or investing in your property is a pleasant, hassle-free experience.',
       viewDetails: 'View Service Details',
       modalClose: 'Close',
-      modalCta: 'Request Proposal for this Service',
+      modalCta: 'Request Quote for this Service',
       scopeTitle: 'What this service includes',
       benefitTitle: 'Key benefit for your property',
       modalityTitle: 'Service modality',
@@ -568,6 +670,7 @@ export const translations: Record<Language, Translations> = {
       residentSupport: '24/7 WhatsApp Support',
       managementLabel: 'Operational Management',
       footerOfficial: 'Property managed under Gadmicon S.R.L. transparency and quality standards.',
+      quoteProject: 'Quote this property type',
       categories: {
         all: 'All Properties',
         torres: 'Residential Towers',
@@ -679,13 +782,86 @@ export const translations: Record<Language, Translations> = {
       badge: 'Quote Calculator',
       title: 'Estimate your proposal',
       subtitle: 'Get a monthly estimate tailored to your property and the services you need.',
+      modeGuided: 'Guided Selection',
+      modeManual: 'Manual Mode',
+      condoSelectionTitle: '1. Select your condominium type',
+      condoSelectionSubtitle: 'Choose the profile that best matches your residential community:',
+      servicesSelectionTitle: '2. Select required Gadmicon services',
+      servicesSelectionSubtitle: 'Select the operational and accounting services Gadmicon will manage:',
+      adjustUnitsLabel: 'Number of units',
+      adjustUnitsHelp: 'Adjust the exact unit count if your condominium differs:',
       propertyTypeLabel: 'Property type',
       unitsLabel: 'Number of units',
       servicesLabel: 'Required services',
-      propertyTypes: { torre: 'Tower / Residential', villa: 'Villa', penthouse: 'Penthouse', comercial: 'Commercial Plaza' },
-      serviceOptions: { contable: 'Accounting Management', mantenimiento: 'Technical Maintenance', conserjeria: 'Concierge / Cleaning', legal: 'Legal Management', atencion: 'Resident Support' },
+      summaryPrefix: 'Estimated for',
+      unitsWord: 'units',
+      servicesWord: 'services',
+      switchToManual: 'Prefer to fine-tune each parameter? Switch to Manual Mode',
+      switchToGuided: 'Return to Guided Selection',
+      propertyTypes: {
+        torre: 'Tower / Residential',
+        villa: 'Villa',
+        penthouse: 'Penthouse',
+        comercial: 'Commercial Plaza',
+      },
+      serviceOptions: {
+        contable: 'Accounting Management',
+        mantenimiento: 'Technical Maintenance',
+        conserjeria: 'Concierge / Cleaning',
+        legal: 'Legal Management',
+        atencion: 'Resident Support',
+      },
+      condoProfiles: {
+        torre: {
+          name: 'Residential Tower',
+          desc: 'Vertical apartment buildings with elevators, backup power, lobby, and shared amenities.',
+          unitsHint: '36 typical units',
+        },
+        residencial: {
+          name: 'Gated Community / Residential',
+          desc: 'Low-density gated complexes of single homes, townhouses, or residential blocks.',
+          unitsHint: '20 typical units',
+        },
+        villa: {
+          name: 'Luxury Villa / Estate',
+          desc: 'Exclusive private residence, beachfront home, or luxury vacation rental estate.',
+          unitsHint: '1 private unit',
+        },
+        penthouse: {
+          name: 'Penthouse / Boutique',
+          desc: 'Select high-end residences requiring discreet, specialized maintenance.',
+          unitsHint: '4 units',
+        },
+        comercial: {
+          name: 'Commercial Plaza / Mixed-Use',
+          desc: 'Retail shops, offices, and mixed plazas with active collection and operation.',
+          unitsHint: '16 typical units',
+        },
+      },
+      serviceDescriptions: {
+        contable: {
+          desc: 'Fee collections, monthly financial statements, bank reconciliations, and vendor payments.',
+          tag: 'Transparent Books',
+        },
+        mantenimiento: {
+          desc: 'Supervision of backup generators, water pumps, cisterns, elevators, and common areas.',
+          tag: 'Technical Oversight',
+        },
+        conserjeria: {
+          desc: 'Vetted concierge staff, building access control, and continuous cleaning standards.',
+          tag: '5-Star Hospitality',
+        },
+        legal: {
+          desc: 'HOA meetings under Dominican Law 5038, formal minutes, and vendor contract audits.',
+          tag: 'Legal Compliance',
+        },
+        atencion: {
+          desc: '24/7 resident WhatsApp channel, incident resolution, and vacation rental support.',
+          tag: '24/7 Support',
+        },
+      },
       estimateLabel: 'Monthly estimate',
-      ctaButton: 'Request a Custom Proposal',
+      ctaButton: 'Request a Custom Quote',
       disclaimer: 'Reference estimate • Final proposal confirmed by our team',
     },
   },
@@ -832,6 +1008,7 @@ export const translations: Record<Language, Translations> = {
       residentSupport: 'Assistance WhatsApp 24/7',
       managementLabel: 'Gestion Opérationnelle',
       footerOfficial: 'Copropriété gérée selon les normes de transparence et qualité Gadmicon S.R.L.',
+      quoteProject: 'Devis pour ce type de bien',
       categories: {
         all: 'Tous les Biens',
         torres: 'Tours Résidentielles',
@@ -943,13 +1120,86 @@ export const translations: Record<Language, Translations> = {
       badge: 'Calculateur de Devis',
       title: 'Estimez votre proposition',
       subtitle: 'Obtenez une estimation mensuelle adaptée à votre propriété et aux services dont vous avez besoin.',
+      modeGuided: 'Sélection Guidée',
+      modeManual: 'Mode Manuel',
+      condoSelectionTitle: '1. Choisissez votre type de copropriété',
+      condoSelectionSubtitle: 'Sélectionnez le profil correspondant le mieux à votre résidence :',
+      servicesSelectionTitle: '2. Sélectionnez les services Gadmicon requis',
+      servicesSelectionSubtitle: 'Choisissez les prestations opérationnelles et comptables à gérer par Gadmicon :',
+      adjustUnitsLabel: 'Nombre de lots / unités',
+      adjustUnitsHelp: 'Ajustez le nombre exact si votre copropriété diffère :',
       propertyTypeLabel: 'Type de propriété',
       unitsLabel: 'Nombre d\'unités',
       servicesLabel: 'Services requis',
-      propertyTypes: { torre: 'Tour / Résidentiel', villa: 'Villa', penthouse: 'Penthouse', comercial: 'Plaza Commerciale' },
-      serviceOptions: { contable: 'Gestion Comptable', mantenimiento: 'Maintenance Technique', conserjeria: 'Conciergerie / Nettoyage', legal: 'Gestion Juridique', atencion: 'Support Résidents' },
+      summaryPrefix: 'Estimé pour',
+      unitsWord: 'unités',
+      servicesWord: 'services',
+      switchToManual: 'Vous préférez ajuster chaque donnée librement ? Passer en Mode Manuel',
+      switchToGuided: 'Retourner à la Sélection Guidée',
+      propertyTypes: {
+        torre: 'Tour / Résidentiel',
+        villa: 'Villa',
+        penthouse: 'Penthouse',
+        comercial: 'Plaza Commerciale',
+      },
+      serviceOptions: {
+        contable: 'Gestion Comptable',
+        mantenimiento: 'Maintenance Technique',
+        conserjeria: 'Conciergerie / Nettoyage',
+        legal: 'Gestion Juridique',
+        atencion: 'Support Résidents',
+      },
+      condoProfiles: {
+        torre: {
+          name: 'Tour Résidentielle',
+          desc: 'Immeuble d\'appartements avec ascenseur, groupe électrogène, hall et espaces communs.',
+          unitsHint: '36 unités typiques',
+        },
+        residencial: {
+          name: 'Copropriété / Résidence',
+          desc: 'Ensemble résidentiel fermé de maisons, townhouses ou petits collectifs.',
+          unitsHint: '20 unités typiques',
+        },
+        villa: {
+          name: 'Villa / Propriété de Luxe',
+          desc: 'Résidence individuelle d’exception, villa en bord de mer ou location de prestige.',
+          unitsHint: '1 unité privée',
+        },
+        penthouse: {
+          name: 'Penthouse / Boutique',
+          desc: 'Logements d’exception avec exigences haut de gamme et entretien minutieux.',
+          unitsHint: '4 unités',
+        },
+        comercial: {
+          name: 'Centre Commercial / Mixte',
+          desc: 'Commerces et bureaux avec gestion du recouvrement et maintenance intensive.',
+          unitsHint: '16 lots typiques',
+        },
+      },
+      serviceDescriptions: {
+        contable: {
+          desc: 'Appels de charges, bilans mensuels, rapprochements bancaires et paiement des fournisseurs.',
+          tag: 'Comptabilité Claire',
+        },
+        mantenimiento: {
+          desc: 'Supervision des groupes électrogènes, pompes, citernes, ascenseurs et communs.',
+          tag: 'Suivi Technique',
+        },
+        conserjeria: {
+          desc: 'Concierges qualifiés, contrôle des accès et entretien régulier soigné.',
+          tag: 'Qualité 5 Étoiles',
+        },
+        legal: {
+          desc: 'Assemblées selon la Loi 5038, procès-verbaux et audit des contrats prestataires.',
+          tag: 'Conformité Légale',
+        },
+        atencion: {
+          desc: 'Canal d\'assistance WhatsApp 24/7, prise en charge des incidents et séjour locatif.',
+          tag: 'Assistance 24/7',
+        },
+      },
       estimateLabel: 'Estimation mensuelle',
-      ctaButton: 'Demander une Proposition Personnalisée',
+      ctaButton: 'Demander un Devis Personnalisé',
       disclaimer: 'Estimation indicative • Proposition finale confirmée par notre équipe',
     },
   },

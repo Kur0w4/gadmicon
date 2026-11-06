@@ -19,7 +19,7 @@ interface ServiceDetailModalProps {
   service: ServiceItem | null;
   imageUrl: string;
   onClose: () => void;
-  onContactClick: () => void;
+  onQuoteClick: (serviceId: string) => void;
   t: Translations;
 }
 
@@ -27,7 +27,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   service,
   imageUrl,
   onClose,
-  onContactClick,
+  onQuoteClick,
   t,
 }) => {
   useEffect(() => {
@@ -176,7 +176,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               </button>
 
               <button
-                onClick={onContactClick}
+                onClick={() => onQuoteClick(service.id)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs sm:text-sm transition-colors shadow-sm cursor-pointer"
               >
                 <span>{t.services.modalCta}</span>

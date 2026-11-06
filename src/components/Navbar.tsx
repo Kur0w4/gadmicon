@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Direct CTA */}
             <button
               id="navbar-cta-contact-btn"
-              onClick={() => onNavigate('contacto')}
+              onClick={() => onNavigate('cotizacion')}
               className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow flex items-center gap-1.5 cursor-pointer"
             >
               <span>{t.nav.ctaContact}</span>
@@ -199,6 +199,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                 DOP
               </button>
             </div>
+          </div>
+
+          <div className="pt-2">
+            <button
+              onClick={() => {
+                onNavigate('cotizacion');
+                setMobileMenuOpen(false);
+              }}
+              className="w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <span>{t.nav.ctaContact}</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       )}

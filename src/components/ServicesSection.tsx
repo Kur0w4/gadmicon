@@ -6,6 +6,7 @@ import { ServiceDetailModal, ServiceItem } from './ServiceDetailModal';
 interface ServicesSectionProps {
   t: Translations;
   onNavigateToContact?: () => void;
+  onNavigateToQuote?: (serviceId: string) => void;
 }
 
 // Map service IDs to local images and fallback Unsplash URLs
@@ -24,7 +25,7 @@ const SERVICE_IMAGES: Record<string, string> = {
     'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80',
 };
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ t, onNavigateToContact }) => {
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ t, onNavigateToContact, onNavigateToQuote }) => {
   const [activeService, setActiveService] = useState<ServiceItem | null>(null);
 
   return (
@@ -109,9 +110,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ t, onNavigateT
         service={activeService}
         imageUrl={activeService ? SERVICE_IMAGES[activeService.id] : ''}
         onClose={() => setActiveService(null)}
-        onContactClick={() => {
+        onQuoteClick={(serviceId) => {
           setActiveService(null);
-          if (onNavigateToContact) onNavigateToContact();
+          if (onNavigateToQuote) onNavigateToQuote(serviceId);
         }}
         t={t}
       />

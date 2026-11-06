@@ -13,12 +13,14 @@ interface ProjectsSectionProps {
   projects: PortfolioProject[];
   currentLang: Language;
   t: Translations;
+  onNavigateToQuote?: (category: string) => void;
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   projects,
   currentLang,
   t,
+  onNavigateToQuote,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [activeModalProject, setActiveModalProject] = useState<PortfolioProject | null>(null);
@@ -165,6 +167,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         <ProjectDetailModal
           project={activeModalProject}
           onClose={() => setActiveModalProject(null)}
+          onNavigateToQuote={onNavigateToQuote}
           currentLang={currentLang}
           t={t}
         />
