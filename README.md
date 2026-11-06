@@ -27,9 +27,8 @@ A modern, high-performance corporate platform and property management portal des
 
 
 ### 🖥️ Desktop Overview & Hero Section
-```markdown
+
 ![Hero & Value Proposition Section](./public/images/screenshot/hero.png)
-```
 
 ---
 
