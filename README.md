@@ -17,8 +17,8 @@ A modern, high-performance corporate platform and property management portal des
 
 | Environment | Status | URL |
 | :--- | :--- | :--- |
-| **Production** | 🟢 Live | `https://your-production-url.com` |
-| **Staging / Preview** | 🟡 Active | `https://your-staging-url.com` |
+| **Production** | 🟢 Live | `https://gadmicon.com` |
+| **Staging / Preview** | 🟡 Active | `https://staging.gadmicon.com` |
 
 ---
 
@@ -28,9 +28,8 @@ A modern, high-performance corporate platform and property management portal des
 
 ### 🖥️ Desktop Overview & Hero Section
 ```markdown
-![Hero & Value Proposition Section](/public/screenshots/hero.png)
+![Hero & Value Proposition Section](./public/images/screenshot/hero.png)
 ```
-> *Placeholder: Add screenshot of the Hero Section with the interactive quick estimate widget.*
 
 ---
 
